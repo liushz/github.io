@@ -75,19 +75,19 @@
       
 
       
-      <h1 id="第一部分Cpp基础"><a href="#第一部分Cpp基础" class="headerlink" title="第一部分Cpp基础"></a>第一部分Cpp基础</h1><h2 id="一、Cpp基本数据类型"><a href="#一、Cpp基本数据类型" class="headerlink" title="一、Cpp基本数据类型"></a>一、Cpp基本数据类型</h2><h3 id="1-1-基本数据类型"><a href="#1-1-基本数据类型" class="headerlink" title="1.1 基本数据类型"></a>1.1 基本数据类型</h3><p>Cpp提供：整形、浮点数、字符、bool和void类型</p>
+      <h1 id="第一部分Cpp基础"><a href="#第一部分Cpp基础" class="headerlink" title="第一部分Cpp基础"></a>第一部分Cpp基础</h1><h2 id="一、Cpp基本数据类型"><a href="#一、Cpp基本数据类型" class="headerlink" title="一、Cpp基本数据类型"></a>一、Cpp基本数据类型</h2><h3 id="1-1、-基本数据类型"><a href="#1-1、-基本数据类型" class="headerlink" title="1.1、  基本数据类型"></a>1.1、  基本数据类型</h3><p>Cpp提供：整形、浮点数、字符、bool和void类型</p>
 <ul>
 <li>整形int为主，推荐用int</li>
 <li>浮点数，有单精度浮点数float和双精度浮点数double，推荐double</li>
 <li>字符，8位，以便存储基本字符？ </li>
 <li>bool void 不加赘述</li>
 </ul>
-<h3 id="1-2数据类型相互转换"><a href="#1-2数据类型相互转换" class="headerlink" title="1.2数据类型相互转换"></a>1.2数据类型相互转换</h3><ul>
+<h3 id="1-2-、数据类型相互转换"><a href="#1-2-、数据类型相互转换" class="headerlink" title="1.2 、数据类型相互转换"></a>1.2 、数据类型相互转换</h3><ul>
 <li>浮点→整形会舍弃小数点后</li>
 <li>很大的整形→浮点会丧失精度</li>
 <li>unsigned超出范围后，取模：8位unsigned范围0 ~ 255 ，-1取255  （-1+256）%256</li>
 </ul>
-<h3 id="1-3初始化"><a href="#1-3初始化" class="headerlink" title="1.3初始化"></a>1.3初始化</h3><ul>
+<h3 id="1-3-、初始化"><a href="#1-3-、初始化" class="headerlink" title="1.3  、初始化"></a>1.3  、初始化</h3><ul>
 <li><p>函数体内变量（对象object）初始化为“未定义”，初始化后用</p>
 </li>
 <li><p>函数体外变量初始化为“0”，据数据类型不同0不同</p>
@@ -95,8 +95,71 @@
 <li><p>建议都初始化，易出错且难改</p>
 </li>
 </ul>
-<h3 id="1-4声明、定义、初始化"><a href="#1-4声明、定义、初始化" class="headerlink" title="1.4声明、定义、初始化"></a>1.4声明、定义、初始化</h3><p>  int i ；//声明，定义</p>
-<p>  extern int i ;//声明非定义，告诉程序</p>
+<h3 id="1-4-、-声明、定义、初始化"><a href="#1-4-、-声明、定义、初始化" class="headerlink" title="1.4 、 声明、定义、初始化"></a>1.4 、 声明、定义、初始化</h3><ul>
+<li>extern int i ;//声明非定义，一个文件想使用别处定义的变量需在本文件内声明</li>
+<li>int i ；//声明，定义 （创造一个实体整形对象）</li>
+</ul>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h3 id="1-5-、变量标识符"><a href="#1-5-、变量标识符" class="headerlink" title="1.5 、变量标识符"></a>1.5 、变量标识符</h3><ul>
+<li><p>只能由字母、下划线、数字组成</p>
+</li>
+<li><p>由字母 or 下划线开头</p>
+</li>
+<li><p>为cpp保留的标识符不能用</p>
+</li>
+<li><p>cpp标准库保留：</p>
+<ul>
+<li>不能连续两个下划线</li>
+<li>不能下划线紧连大写字母开头</li>
+<li><em>函数体外</em> 的标识符不能以下划线开头</li>
+</ul>
+<h4 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h4></li>
+</ul>
+<ol>
+<li>标识符体现实际意义 ，如：student_number</li>
+<li>变量名一般用小写字母 ，如：index</li>
+<li>自定义类名一般大写字母开头，如：Sales_item</li>
+<li>多单词分割<ul>
+<li>student_loan</li>
+<li>studentLoan</li>
+</ul>
+</li>
+</ol>
+<h3 id="1-6-引用"><a href="#1-6-引用" class="headerlink" title="1.6 引用"></a>1.6 引用</h3><p>引用就是对象的别名 int &amp;rename =  name;</p>
+<ul>
+<li>引用必须被初始化，因为它和对象是绑定关系，一旦绑定，无法重新绑定</li>
+<li>引用不是一个对象，不能定义引用的引用</li>
+</ul>
+<h3 id="1-7-指针"><a href="#1-7-指针" class="headerlink" title="1.7 指针"></a>1.7 指针</h3><p>指针指向地址，解引用后得到其对象 int *p = &var;</p>
+<ul>
+<li>指针本身是一个对象</li>
+<li>不能定义指向引用的指针,引用不是个对象，没有实际地址</li>
+</ul>
+<h4 id="指针指向的情况"><a href="#指针指向的情况" class="headerlink" title="指针指向的情况"></a>指针指向的情况</h4><ol>
+<li>对象</li>
+<li>对象空间的下一个位置</li>
+<li>空指针，未指向任何一个对象（未初始化或者 nullptr，预处理变量NULL）</li>
+<li>无效指针，上述情况外的值</li>
+</ol>
+<h4 id="void-类型，可存任意类型对象的地址"><a href="#void-类型，可存任意类型对象的地址" class="headerlink" title="void* 类型，可存任意类型对象的地址"></a>void* 类型，可存任意类型对象的地址</h4><h4 id="离变量名最近的符号对变量类型有直接的影响，如：int-amp-r-p；-r-是一个对指针的引用"><a href="#离变量名最近的符号对变量类型有直接的影响，如：int-amp-r-p；-r-是一个对指针的引用" class="headerlink" title="离变量名最近的符号对变量类型有直接的影响，如：int *&amp;r = p； // r 是一个对指针的引用"></a>离变量名最近的符号对变量类型有直接的影响，如：int *&amp;r = p； // r 是一个对指针的引用</h4><h2 id="1-7-const"><a href="#1-7-const" class="headerlink" title="1.7 const"></a>1.7 const</h2><p>常量constant</p>
+<ol>
+<li><p>必须初始化</p>
+</li>
+<li><p>对const的引用 == 常量引用，引用是无法改变绑定对象的</p>
+<ul>
+<li><p>对常量对象只能用常量引用，普通引用会报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const int i &#x3D; 1;</span><br><span class="line">const int &amp; r &#x3D; i; &#x2F;&#x2F;(i是常量),r是常量引用</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一般引用只能绑定对象，而常量引用可用任意表达式作为初始值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const int &amp;r &#x3D; i * 5 ;</span><br><span class="line">const int &amp;r1 &#x3D; 42;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+</li>
+</ol>
+<ol start="3">
+<li></li>
+</ol>
 
       
       <!-- 打赏 -->

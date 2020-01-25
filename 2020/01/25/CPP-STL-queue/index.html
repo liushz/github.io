@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    leetcode.371 |  shz&#39;s Blog
+    CPP-STL-queue |  shz&#39;s Blog
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -34,7 +34,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-leetcode-371" class="article article-type-post" itemscope
+  <article id="post-CPP-STL-queue" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -42,7 +42,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  leetcode.371
+  CPP-STL-queue
 </h1>
   
 
@@ -51,8 +51,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/01/19/leetcode-371/" class="article-date">
-  <time datetime="2020-01-19T01:34:44.000Z" itemprop="datePublished">2020-01-19</time>
+      <a href="/2020/01/25/CPP-STL-queue/" class="article-date">
+  <time datetime="2020-01-25T11:44:39.000Z" itemprop="datePublished">2020-01-25</time>
 </a>
       
     </div>
@@ -75,43 +75,19 @@
       
 
       
-      <h1 id="leetcode-371-两整数和"><a href="#leetcode-371-两整数和" class="headerlink" title="leetcode.371 两整数和"></a>leetcode.371 两整数和</h1><p><em>不使用运算符 + 和 - ，计算两整数 a 、b 之和。</em></p>
-<p><em>示例 1:</em></p>
-<p><em>输入: a = 1, b = 2</em><br><em>输出: 3</em><br><em>示例 2:</em></p>
-<p><em>输入: a = -2, b = 3</em><br><em>输出: 1</em></p>
-<h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><p>一开始想不出来，但隐约觉得是用二进制实现加法，看了题解果然是，二进制加法是组原学的，学的一知半解，正好复习一下。</p>
-<p>加法拆分两步：</p>
-<ol>
-<li><p>a b取亦或^（第一次见cpp亦或，惭愧-。-），实现 不进位的相加和</p>
-<p>1 1 → 0 （进位）</p>
-<p>0 0 → 0</p>
-<p>1 0 →1</p>
-<p>0 1 →1</p>
-<p>如 3 9 ： 0011 ^ 1001 → 1010 （最后一位产生进位）</p>
+      <h1 id="复习STL的queue"><a href="#复习STL的queue" class="headerlink" title="复习STL的queue"></a>复习STL的queue</h1><ol>
+<li><p>有以下函数</p>
+<ul>
+<li>empty()</li>
+<li>front()</li>
+<li>pop()  //注意：只删不返回，类型void</li>
+<li>back()</li>
+<li>size()</li>
+</ul>
 </li>
-<li><p>a b 取和&amp; ，实现进位</p>
-<p>如：0001 &amp; 0001 → 0001 末位进位1 </p>
-<p>此时知道哪位进位了，但进位方向是向前一位，所以左移</p>
-<p>auto carry = ((unsigned int )(a &amp; b))&lt;&lt;1;</p>
+<li><p>定义 queue<TreeNode>*p; //并非Queue小写</p>
 </li>
 </ol>
-<p>此时相当于得到了新的两个数ab，相加其得结果（不进位和+进位），那就重复上述步骤呗</p>
-<p>直至进位为0，就是和</p>
-<h2 id="二、代码"><a href="#二、代码" class="headerlink" title="二、代码"></a>二、代码</h2><p>class Solution {<br>public:<br>    int getSum(int a, int b) {<br>    int c=a;</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getSum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c=a;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (b) &#123;</span><br><span class="line">		c = a ^ b;</span><br><span class="line">	    b = ((<span class="keyword">unsigned</span> <span class="keyword">int</span>)(a &amp; b)) &lt;&lt; <span class="number">1</span>;</span><br><span class="line">		a = c;</span><br><span class="line">	&#125;</span><br><span class="line">     <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="三、运行结果"><a href="#三、运行结果" class="headerlink" title="三、运行结果"></a>三、运行结果</h2><p>图床挂了mmp</p>
-<p>执行结果：</p>
-<p>通过</p>
-<p>显示详情</p>
-<p>执行用时 :0 ms, 在所有 C++ 提交中击败了100.00%的用户</p>
-<p>内存消耗 :8.3 MB, 在所有 C++ 提交中击败了5.52%的用户</p>
-<p>内存这么差？用了一个int就这么差的吗？-。-</p>
-<h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><ul>
-<li>整数加法的原理：合区+进位</li>
-<li>进位的单词：carry</li>
-</ul>
 
       
       <!-- 打赏 -->
@@ -122,7 +98,7 @@
         
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/19/leetcode-371/" data-id="ck5kdc6hb00008otigu3wd57c"
+      <a data-url="http://yoursite.com/2020/01/25/CPP-STL-queue/" data-id="ck5tj5yc20000pgti3qjtd5fg"
         class="article-share-link">分享</a>
       
     </footer>
@@ -133,19 +109,10 @@
   
   <nav class="article-nav">
     
+    
       <a href="/2020/01/23/leetcode-401/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            leetcode.401
-          
-        </div>
-      </a>
-    
-    
-      <a href="/2020/01/15/leetcode367/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">leetcode367</div>
+        <div class="article-nav-title">leetcode.401</div>
       </a>
     
   </nav>

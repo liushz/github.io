@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    leetcode.371 |  shz&#39;s Blog
+    leetcode.401 |  shz&#39;s Blog
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -34,7 +34,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-leetcode-371" class="article article-type-post" itemscope
+  <article id="post-leetcode-401" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -42,7 +42,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  leetcode.371
+  leetcode.401
 </h1>
   
 
@@ -51,8 +51,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/01/19/leetcode-371/" class="article-date">
-  <time datetime="2020-01-19T01:34:44.000Z" itemprop="datePublished">2020-01-19</time>
+      <a href="/2020/01/23/leetcode-401/" class="article-date">
+  <time datetime="2020-01-23T09:27:00.000Z" itemprop="datePublished">2020-01-23</time>
 </a>
       
     </div>
@@ -75,43 +75,24 @@
       
 
       
-      <h1 id="leetcode-371-两整数和"><a href="#leetcode-371-两整数和" class="headerlink" title="leetcode.371 两整数和"></a>leetcode.371 两整数和</h1><p><em>不使用运算符 + 和 - ，计算两整数 a 、b 之和。</em></p>
-<p><em>示例 1:</em></p>
-<p><em>输入: a = 1, b = 2</em><br><em>输出: 3</em><br><em>示例 2:</em></p>
-<p><em>输入: a = -2, b = 3</em><br><em>输出: 1</em></p>
-<h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><p>一开始想不出来，但隐约觉得是用二进制实现加法，看了题解果然是，二进制加法是组原学的，学的一知半解，正好复习一下。</p>
-<p>加法拆分两步：</p>
+      <h1 id="leetcode-401-二进制手表"><a href="#leetcode-401-二进制手表" class="headerlink" title="leetcode.401 二进制手表"></a>leetcode.401 二进制手表</h1><p><em>给定一个非负整数 n 代表当前 LED 亮着的数量，返回所有可能的时间。</em></p>
+<p><em>案例:</em></p>
+<p><em>输入: n = 1</em><br><em>返回: [“1:00”, “2:00”, “4:00”, “8:00”, “0:01”, “0:02”, “0:04”, “0:08”, “0:16”, “0:32”]</em></p>
+<p><em>注意事项:</em></p>
+<p><em>输出的顺序没有要求。</em><br><em>小时不会以零开头，比如 “01:00” 是不允许的，应为 “1:00”。</em><br><em>分钟必须由两位数组成，可能会以零开头，比如 “10:2” 是无效的，应为 “10:02”。</em></p>
+<h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><p>没想出来，只想出枚举（用switch列出所有可能情况）和暴力列出可能序列方法。</p>
+<p>题解区大佬给的方法是：</p>
+<p>遍历0<del>11和0</del>59中含二进制1的情况，如果等于num则输出</p>
+<h3 id="属于反向思维，不用num去找时间，看所有序列中符合num的有多少种"><a href="#属于反向思维，不用num去找时间，看所有序列中符合num的有多少种" class="headerlink" title="属于反向思维，不用num去找时间，看所有序列中符合num的有多少种"></a>属于反向思维，不用num去找时间，看所有序列中符合num的有多少种</h3><h3 id="查找二进制1的式子：-n-n-amp-n-1-此时找到一个-1，并消去（前提n不为1）"><a href="#查找二进制1的式子：-n-n-amp-n-1-此时找到一个-1，并消去（前提n不为1）" class="headerlink" title="查找二进制1的式子： n = n&amp;(n - 1); //此时找到一个 1，并消去（前提n不为1）"></a>查找二进制1的式子： n = n&amp;(n - 1); //此时找到一个 1，并消去（前提n不为1）</h3><h2 id="二、代码"><a href="#二、代码" class="headerlink" title="二、代码"></a>二、代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; readBinaryWatch(<span class="keyword">int</span> num) &#123;</span><br><span class="line">      </span><br><span class="line">       <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; ans;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">12</span>;i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">60</span>;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(count1(i) + count1(j) == num)</span><br><span class="line">                    ans.push_back(to_string(i) + <span class="string">":"</span> + (j &lt; <span class="number">10</span>?<span class="string">"0"</span>+to_string(j):to_string(j))); <span class="comment">//注意</span></span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">count1</span><span class="params">(<span class="keyword">int</span> n)</span> <span class="comment">// 正整形中二进制1的个数</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(n)</span><br><span class="line">        &#123;</span><br><span class="line">            n = n&amp;(n - <span class="number">1</span>);</span><br><span class="line">            sum++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="三、复杂度"><a href="#三、复杂度" class="headerlink" title="三、复杂度"></a>三、复杂度</h2><p>每次都要循环12*60</p>
+<p>改进：</p>
 <ol>
-<li><p>a b取亦或^（第一次见cpp亦或，惭愧-。-），实现 不进位的相加和</p>
-<p>1 1 → 0 （进位）</p>
-<p>0 0 → 0</p>
-<p>1 0 →1</p>
-<p>0 1 →1</p>
-<p>如 3 9 ： 0011 ^ 1001 → 1010 （最后一位产生进位）</p>
-</li>
-<li><p>a b 取和&amp; ，实现进位</p>
-<p>如：0001 &amp; 0001 → 0001 末位进位1 </p>
-<p>此时知道哪位进位了，但进位方向是向前一位，所以左移</p>
-<p>auto carry = ((unsigned int )(a &amp; b))&lt;&lt;1;</p>
-</li>
+<li>剪枝：当小时所占 1 已达到num就结束</li>
+<li></li>
 </ol>
-<p>此时相当于得到了新的两个数ab，相加其得结果（不进位和+进位），那就重复上述步骤呗</p>
-<p>直至进位为0，就是和</p>
-<h2 id="二、代码"><a href="#二、代码" class="headerlink" title="二、代码"></a>二、代码</h2><p>class Solution {<br>public:<br>    int getSum(int a, int b) {<br>    int c=a;</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getSum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c=a;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (b) &#123;</span><br><span class="line">		c = a ^ b;</span><br><span class="line">	    b = ((<span class="keyword">unsigned</span> <span class="keyword">int</span>)(a &amp; b)) &lt;&lt; <span class="number">1</span>;</span><br><span class="line">		a = c;</span><br><span class="line">	&#125;</span><br><span class="line">     <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="三、运行结果"><a href="#三、运行结果" class="headerlink" title="三、运行结果"></a>三、运行结果</h2><p>图床挂了mmp</p>
-<p>执行结果：</p>
-<p>通过</p>
-<p>显示详情</p>
-<p>执行用时 :0 ms, 在所有 C++ 提交中击败了100.00%的用户</p>
-<p>内存消耗 :8.3 MB, 在所有 C++ 提交中击败了5.52%的用户</p>
-<p>内存这么差？用了一个int就这么差的吗？-。-</p>
-<h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><ul>
-<li>整数加法的原理：合区+进位</li>
-<li>进位的单词：carry</li>
-</ul>
 
       
       <!-- 打赏 -->
@@ -122,7 +103,7 @@
         
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/19/leetcode-371/" data-id="ck5kdc6hb00008otigu3wd57c"
+      <a data-url="http://yoursite.com/2020/01/23/leetcode-401/" data-id="ck5tj5ydb0001pgti1ye9gtnz"
         class="article-share-link">分享</a>
       
     </footer>
@@ -133,19 +114,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/01/23/leetcode-401/" class="article-nav-link">
+      <a href="/2020/01/25/CPP-STL-queue/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            leetcode.401
+            CPP-STL-queue
           
         </div>
       </a>
     
     
-      <a href="/2020/01/15/leetcode367/" class="article-nav-link">
+      <a href="/2020/01/19/leetcode-371/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">leetcode367</div>
+        <div class="article-nav-title">leetcode.371</div>
       </a>
     
   </nav>
