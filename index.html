@@ -66,6 +66,159 @@
 
     
     
+    <article id="post-leetcode-405数字转十六进制" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/01/25/leetcode-405%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/"
+    >leetcode.405数字转十六进制</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/01/25/leetcode-405%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/" class="article-date">
+  <time datetime="2020-01-25T12:45:26.000Z" itemprop="datePublished">2020-01-25</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="数组转十六进制"><a href="#数组转十六进制" class="headerlink" title="数组转十六进制"></a>数组转十六进制</h1><p><em>给定一个整数，编写一个算法将这个数转换为十六进制数。对于负整数，我们通常使用 补码运算 方法。</em></p>
+<p><em>注意:</em></p>
+<p><em>十六进制中所有字母(a-f)都必须是小写。</em><br><em>十六进制字符串中不能包含多余的前导零。如果要转化的数为0，那么以单个字符’0’来表示；对于其他情况，十六进制字符串中的第一个字符将不会是0字符。</em><br><em>给定的数确保在32位有符号整数范围内。</em><br><em>不能使用任何由库提供的将数字直接转换或格式化为十六进制的方法。</em><br><em>示例 1：</em></p>
+<p><em>输入:</em><br><em>26</em></p>
+<p><em>输出:</em><br>*”1a”*<br><em>示例 2：</em></p>
+<p><em>输入:</em><br><em>-1</em></p>
+<p><em>输出:</em><br>*”ffffffff”*</p>
+<h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><ul>
+<li>小写字母表示；0用“0”；</li>
+</ul>
+<p>正数简单，类似二进制，先取余再除。</p>
+<p>复数特殊，大佬题解的答案巧妙：全部转化 unsigned int  最大是2^32 -1 而ffff ffff也是2^32 -1 </p>
+<h2 id="二、代码"><a href="#二、代码" class="headerlink" title="二、代码"></a>二、代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">toHex</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">       </span><br><span class="line">        <span class="keyword">if</span>(num == <span class="number">0</span>) <span class="keyword">return</span> <span class="string">"0"</span>;</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">int</span> Unum = num;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">string</span> ans = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">while</span>(Unum)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> remainder = Unum%<span class="number">16</span>;</span><br><span class="line">            Unum/=<span class="number">16</span>;</span><br><span class="line">            ans = (remainder&gt;<span class="number">9</span>?(<span class="keyword">char</span>)(<span class="string">'a'</span>+remainder - <span class="number">10</span>):(<span class="keyword">char</span>)(<span class="string">'0'</span> + remainder)) + ans;</span><br><span class="line">        &#125;</span><br><span class="line">       <span class="keyword">return</span> ans; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/25/leetcode-405%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/" data-id="ck5z66etl0001moti4wxdhb1z"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-algor-二叉树遍历" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/01/25/algor-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/"
+    >algor-二叉树遍历</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/01/25/algor-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/" class="article-date">
+  <time datetime="2020-01-25T11:49:07.000Z" itemprop="datePublished">2020-01-25</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="复习二叉树遍历"><a href="#复习二叉树遍历" class="headerlink" title="复习二叉树遍历"></a>复习二叉树遍历</h1><ul>
+<li>前序    根左右</li>
+<li>中序   左根右</li>
+<li>后序   左右根</li>
+<li>层次</li>
+</ul>
+<h2 id="一、前序"><a href="#一、前序" class="headerlink" title="一、前序"></a>一、前序</h2><h2 id="二、中序"><a href="#二、中序" class="headerlink" title="二、中序"></a>二、中序</h2><h2 id="三、后序"><a href="#三、后序" class="headerlink" title="三、后序"></a>三、后序</h2><h2 id="四、层次"><a href="#四、层次" class="headerlink" title="四、层次"></a>四、层次</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//层次遍历</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">HierarchicalTraversal</span> <span class="params">(TreeNode *root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(!root) <span class="keyword">return</span>;</span><br><span class="line">  <span class="built_in">queue</span>&lt;TreeNode&gt; q;</span><br><span class="line">  q.push(root);</span><br><span class="line">  <span class="keyword">while</span>(!q.empty())</span><br><span class="line">  &#123;</span><br><span class="line">    TreeNode *temp = q.front();</span><br><span class="line">    q.pop();</span><br><span class="line">    visit(temp);  <span class="comment">//deal with</span></span><br><span class="line">    <span class="keyword">if</span>(temp-&gt;left)</span><br><span class="line">    q.push(temp-&gt;left);</span><br><span class="line">    <span class="keyword">if</span>(temp-&gt;right)</span><br><span class="line">    q.push(temp-&gt;right);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><ol>
+<li>一次while只是一个结点，<strong>不是一层</strong> ，标识每层需要两个指针</li>
+</ol>
+<h2 id="扩展："><a href="#扩展：" class="headerlink" title="扩展："></a>扩展：</h2><ol>
+<li><p>实现遍历过程中按行输出</p>
+<p>自己实现，用 pre记录当前行剩余结点数，next记录下一行，写的很麻烦，还错了三次</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; levelOrder(TreeNode* root) &#123;</span><br><span class="line">    </span><br><span class="line">      <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans; <span class="comment">//answer</span></span><br><span class="line">      <span class="keyword">if</span>(!root) <span class="keyword">return</span> ans;</span><br><span class="line">        </span><br><span class="line">      <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; thisLayer;</span><br><span class="line">      <span class="built_in">queue</span>&lt;TreeNode*&gt;q; <span class="comment">//queue</span></span><br><span class="line">      q.push(root);</span><br><span class="line">      thisLayer.push_back(root-&gt;val);</span><br><span class="line">      ans.push_back(thisLayer);</span><br><span class="line">      thisLayer.resize(<span class="number">0</span>);</span><br><span class="line">        </span><br><span class="line">      <span class="keyword">int</span> pre = <span class="number">1</span>;  <span class="comment">//当前行剩余结点</span></span><br><span class="line">      <span class="keyword">int</span> next = <span class="number">0</span>;  <span class="comment">//下一行目前结点数</span></span><br><span class="line">      <span class="keyword">while</span>(!q.empty())</span><br><span class="line">      &#123;</span><br><span class="line">          TreeNode *p = q.front();</span><br><span class="line">          q.pop();</span><br><span class="line">          pre--;</span><br><span class="line">         </span><br><span class="line">          <span class="keyword">if</span>(p-&gt;left)</span><br><span class="line">          &#123;</span><br><span class="line">             thisLayer.push_back(p-&gt;left-&gt;val);</span><br><span class="line">              q.push(p-&gt;left);</span><br><span class="line">              next++;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">if</span>(p-&gt;right)</span><br><span class="line">          &#123;</span><br><span class="line">              thisLayer.push_back(p-&gt;right-&gt;val);</span><br><span class="line">              q.push(p-&gt;right);</span><br><span class="line">              next++;</span><br><span class="line">          &#125;</span><br><span class="line">            <span class="keyword">if</span>(pre == <span class="number">0</span>&amp;&amp;next!=<span class="number">0</span>)</span><br><span class="line">          &#123;</span><br><span class="line">             pre = next;</span><br><span class="line">             next = <span class="number">0</span>;</span><br><span class="line">             ans.push_back(thisLayer);</span><br><span class="line">             thisLayer.resize(<span class="number">0</span>);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.ax1x.com/2020/01/29/1QJiCD.png" alt=""></p>
+<p>麻烦又慢错了三次：注意检查两遍+前三准则</p>
+</li>
+</ol>
+<p>改进版：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;&#x2F;&#x2F;一个while遍历一层</span><br><span class="line">public:</span><br><span class="line">    vector&lt;vector&lt;int&gt;&gt; levelOrder(TreeNode* root) &#123;</span><br><span class="line">      vector&lt;vector&lt;int&gt;&gt; ans; &#x2F;&#x2F;answer</span><br><span class="line">      if(!root) return ans;</span><br><span class="line">      queue&lt;TreeNode*&gt;q; &#x2F;&#x2F;queue</span><br><span class="line">      q.push(root);</span><br><span class="line">      </span><br><span class="line">      while(!q.empty())</span><br><span class="line">      &#123;</span><br><span class="line">          int size &#x3D; q.size();</span><br><span class="line">          vector&lt;int&gt; thisLayer;</span><br><span class="line">          for(int i&#x3D;0;i&lt;size;i++)</span><br><span class="line">          &#123;</span><br><span class="line">          TreeNode *p &#x3D; q.front();</span><br><span class="line">          q.pop();</span><br><span class="line">          thisLayer.push_back(p-&gt;val);</span><br><span class="line">              </span><br><span class="line">          if(p-&gt;left) q.push(p-&gt;left);</span><br><span class="line">          if(p-&gt;right) q.push(p-&gt;right);</span><br><span class="line">     &#125;</span><br><span class="line">          ans.push_back(thisLayer);</span><br><span class="line">      &#125;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/25/algor-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/" data-id="ck5z66eqh0000moti6lqg26zl"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-CPP-STL-queue" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -758,78 +911,14 @@ public:
 
 </article>
     
-    <article id="post-windows游戏编程大师技巧-1" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/01/07/windows%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%B8%88%E6%8A%80%E5%B7%A7-1/"
-    >windows游戏编程大师技巧-1</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/01/07/windows%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%B8%88%E6%8A%80%E5%B7%A7-1/" class="article-date">
-  <time datetime="2020-01-07T14:22:47.160Z" itemprop="datePublished">2020-01-07</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <p>#笔记：window游戏大师技巧–第一章概要<br>##1、游戏循环流程</p>
-<ul>
-<li>准备 （程序装入内存）</li>
-<li>进入游戏主循环</li>
-<li>检测输入input</li>
-<li>logic 和 AI 反应</li>
-<li>渲染到缓存中</li>
-<li>更新到屏幕上</li>
-<li>回到主循环</li>
-<li>退出exit（执行退出 杀PID，清内存）</li>
-</ul>
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/07/windows%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%B8%88%E6%8A%80%E5%B7%A7-1/" data-id="ck5d9f30t0001totie1joamu6"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
   </article>
   
 
+  
+  <nav class="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+  </nav>
   
 </section>
 </div>

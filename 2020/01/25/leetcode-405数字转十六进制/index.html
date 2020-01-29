@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    CPP-STL-queue |  shz&#39;s Blog
+    leetcode.405数字转十六进制 |  shz&#39;s Blog
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -34,7 +34,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-CPP-STL-queue" class="article article-type-post" itemscope
+  <article id="post-leetcode-405数字转十六进制" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -42,7 +42,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  CPP-STL-queue
+  leetcode.405数字转十六进制
 </h1>
   
 
@@ -51,8 +51,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/01/25/CPP-STL-queue/" class="article-date">
-  <time datetime="2020-01-25T11:44:39.000Z" itemprop="datePublished">2020-01-25</time>
+      <a href="/2020/01/25/leetcode-405%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/" class="article-date">
+  <time datetime="2020-01-25T12:45:26.000Z" itemprop="datePublished">2020-01-25</time>
 </a>
       
     </div>
@@ -75,19 +75,20 @@
       
 
       
-      <h1 id="复习STL的queue"><a href="#复习STL的queue" class="headerlink" title="复习STL的queue"></a>复习STL的queue</h1><ol>
-<li><p>有以下函数</p>
-<ul>
-<li>empty()</li>
-<li>front()</li>
-<li>pop()  //注意：只删不返回，类型void</li>
-<li>back()</li>
-<li>size()</li>
+      <h1 id="数组转十六进制"><a href="#数组转十六进制" class="headerlink" title="数组转十六进制"></a>数组转十六进制</h1><p><em>给定一个整数，编写一个算法将这个数转换为十六进制数。对于负整数，我们通常使用 补码运算 方法。</em></p>
+<p><em>注意:</em></p>
+<p><em>十六进制中所有字母(a-f)都必须是小写。</em><br><em>十六进制字符串中不能包含多余的前导零。如果要转化的数为0，那么以单个字符’0’来表示；对于其他情况，十六进制字符串中的第一个字符将不会是0字符。</em><br><em>给定的数确保在32位有符号整数范围内。</em><br><em>不能使用任何由库提供的将数字直接转换或格式化为十六进制的方法。</em><br><em>示例 1：</em></p>
+<p><em>输入:</em><br><em>26</em></p>
+<p><em>输出:</em><br>*”1a”*<br><em>示例 2：</em></p>
+<p><em>输入:</em><br><em>-1</em></p>
+<p><em>输出:</em><br>*”ffffffff”*</p>
+<h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><ul>
+<li>小写字母表示；0用“0”；</li>
 </ul>
-</li>
-<li><p>定义 queue<TreeNode>*p; //并非Queue小写</p>
-</li>
-</ol>
+<p>正数简单，类似二进制，先取余再除。</p>
+<p>复数特殊，大佬题解的答案巧妙：全部转化 unsigned int  最大是2^32 -1 而ffff ffff也是2^32 -1 </p>
+<h2 id="二、代码"><a href="#二、代码" class="headerlink" title="二、代码"></a>二、代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">toHex</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">       </span><br><span class="line">        <span class="keyword">if</span>(num == <span class="number">0</span>) <span class="keyword">return</span> <span class="string">"0"</span>;</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">int</span> Unum = num;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">string</span> ans = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">while</span>(Unum)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> remainder = Unum%<span class="number">16</span>;</span><br><span class="line">            Unum/=<span class="number">16</span>;</span><br><span class="line">            ans = (remainder&gt;<span class="number">9</span>?(<span class="keyword">char</span>)(<span class="string">'a'</span>+remainder - <span class="number">10</span>):(<span class="keyword">char</span>)(<span class="string">'0'</span> + remainder)) + ans;</span><br><span class="line">        &#125;</span><br><span class="line">       <span class="keyword">return</span> ans; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 
       
       <!-- 打赏 -->
@@ -98,7 +99,7 @@
         
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/25/CPP-STL-queue/" data-id="ck5tj5yc20000pgti3qjtd5fg"
+      <a data-url="http://yoursite.com/2020/01/25/leetcode-405%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/" data-id="ck5z66etl0001moti4wxdhb1z"
         class="article-share-link">分享</a>
       
     </footer>
@@ -109,19 +110,10 @@
   
   <nav class="article-nav">
     
+    
       <a href="/2020/01/25/algor-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            algor-二叉树遍历
-          
-        </div>
-      </a>
-    
-    
-      <a href="/2020/01/23/leetcode-401/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">leetcode.401</div>
+        <div class="article-nav-title">algor-二叉树遍历</div>
       </a>
     
   </nav>
