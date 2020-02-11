@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    algor-排序汇总 |  shz&#39;s Blog
+    CPP-预处理 |  shz&#39;s Blog
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -34,7 +34,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-algor-排序汇总" class="article article-type-post" itemscope
+  <article id="post-CPP-预处理" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -42,7 +42,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  algor-排序汇总
+  CPP-预处理
 </h1>
   
 
@@ -51,8 +51,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/01/31/algor-%E6%8E%92%E5%BA%8F%E6%B1%87%E6%80%BB/" class="article-date">
-  <time datetime="2020-01-31T08:50:30.073Z" itemprop="datePublished">2020-01-31</time>
+      <a href="/2020/02/01/CPP-%E9%A2%84%E5%A4%84%E7%90%86/" class="article-date">
+  <time datetime="2020-02-01T04:14:52.985Z" itemprop="datePublished">2020-02-01</time>
 </a>
       
     </div>
@@ -75,9 +75,23 @@
       
 
       
-      <p>[TOC]</p>
-<h1 id="内排序"><a href="#内排序" class="headerlink" title="内排序"></a>内排序</h1><h2 id="一、插入排序"><a href="#一、插入排序" class="headerlink" title="一、插入排序"></a>一、插入排序</h2><h3 id="1-直接插入"><a href="#1-直接插入" class="headerlink" title="1.直接插入"></a>1.直接插入</h3><h3 id="扩展：折半插入"><a href="#扩展：折半插入" class="headerlink" title="扩展：折半插入"></a>扩展：折半插入</h3><h3 id="扩展：希尔排序"><a href="#扩展：希尔排序" class="headerlink" title="扩展：希尔排序"></a>扩展：希尔排序</h3><h2 id="二、交换"><a href="#二、交换" class="headerlink" title="二、交换"></a>二、交换</h2><h3 id="1-冒泡"><a href="#1-冒泡" class="headerlink" title="1.冒泡"></a>1.冒泡</h3><h3 id="2-快排"><a href="#2-快排" class="headerlink" title="2.快排"></a>2.快排</h3><p>不断切分，一次排序一个数</p>
-<h2 id="三、选择排序"><a href="#三、选择排序" class="headerlink" title="三、选择排序"></a>三、选择排序</h2><h3 id="1-简单选择"><a href="#1-简单选择" class="headerlink" title="1.简单选择"></a>1.简单选择</h3><h3 id="2-堆排序"><a href="#2-堆排序" class="headerlink" title="2.堆排序"></a>2.堆排序</h3><h1 id="外排序"><a href="#外排序" class="headerlink" title="外排序"></a>外排序</h1><h2 id="一、归并"><a href="#一、归并" class="headerlink" title="一、归并"></a>一、归并</h2><h2 id="二、基数"><a href="#二、基数" class="headerlink" title="二、基数"></a>二、基数</h2>
+      <h1 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h1><p>cpp有预处理器，用于程序<strong>编译</strong>前执行预处理程序</p>
+<p>预处理→编译→汇编→连接</p>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><p>处理预处理变量，将程序中的预处理变量替换为相应值</p>
+<ul>
+<li>#define 定义一个预处理变量（<a href="">宏定义</a>） </li>
+<li>头文件保护符： #ifdef #ifdef #endif 判断预处理变量定义与否 #if 判断预处理变量真假</li>
+</ul>
+<p>如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> area x * x  <span class="comment">//不加";"，因为替换</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> a = area(<span class="number">5</span>+<span class="number">5</span>); <span class="comment">// 预处理后变为： int a = 5+5*5+5; replace directly   </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>attentions:</em></p>
+<ol>
+<li>vars add “( )”</li>
+<li>the formula adds “()” according to the priority of the calculation</li>
+</ol>
+<p>预处理变量作用域为全部相关文件</p>
+
       
       <!-- 打赏 -->
       
@@ -87,7 +101,7 @@
         
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/31/algor-%E6%8E%92%E5%BA%8F%E6%B1%87%E6%80%BB/" data-id="ck61yddmb0000o8tifx68795z"
+      <a data-url="http://yoursite.com/2020/02/01/CPP-%E9%A2%84%E5%A4%84%E7%90%86/" data-id="ck6hoxjvy0007s8tibzsibjxh"
         class="article-share-link">分享</a>
       
     </footer>
@@ -97,6 +111,15 @@
   
   
   <nav class="article-nav">
+    
+      <a href="/2020/02/02/CPP-STL-sort%E3%80%81reverse/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            CPP-STL-sort、reverse
+          
+        </div>
+      </a>
     
     
       <a href="/2020/01/25/leetcode-405%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/" class="article-nav-link">
