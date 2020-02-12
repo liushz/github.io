@@ -66,6 +66,234 @@
 
     
     
+    <article id="post-CPP-STL-String" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/02/11/CPP-STL-String/"
+    >CPP-STL-String</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/02/11/CPP-STL-String/" class="article-date">
+  <time datetime="2020-02-11T12:23:44.178Z" itemprop="datePublished">2020-02-11</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="String操作"><a href="#String操作" class="headerlink" title="String操作"></a>String操作</h1><ul>
+<li>string.substr(pos,n); //pos开始n个字符子串，包括pos处</li>
+<li>to_string(type); //转string</li>
+<li></li>
+</ul>
+<h1 id="extra："><a href="#extra：" class="headerlink" title="extra："></a>extra：</h1><ol>
+<li><p>string转int：stoi不需要头文件</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stoi(<span class="built_in">string</span>,<span class="number">0</span>,n)  <span class="comment">// 0 is the beginning position,n is the number of "进制"</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/11/CPP-STL-String/" data-id="ck6il4cqp0000w8ti1nstfn59"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-算法笔记-二分法" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E4%BA%8C%E5%88%86%E6%B3%95/"
+    >算法笔记-二分法</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E4%BA%8C%E5%88%86%E6%B3%95/" class="article-date">
+  <time datetime="2020-02-11T12:20:24.784Z" itemprop="datePublished">2020-02-11</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="算法笔记-二分法"><a href="#算法笔记-二分法" class="headerlink" title="算法笔记-二分法"></a>算法笔记-二分法</h1><p>一、模板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">while(l &lt; h)</span><br><span class="line">&#123;</span><br><span class="line">  mid &#x3D; l + （h - l)&#x2F;2;</span><br><span class="line">  if(a[mid] &#x3D;&#x3D; key)</span><br><span class="line">  return mid;</span><br><span class="line">  if(a[mid]&gt;key)</span><br><span class="line">   h &#x3D; mid -1;</span><br><span class="line">   else</span><br><span class="line">   l &#x3D; mid + 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、实例"><a href="#二、实例" class="headerlink" title="二、实例"></a>二、实例</h2><ol>
+<li><p>木棍问题</p>
+</li>
+<li><p>半圆h问题</p>
+</li>
+<li><p>快速幂问题</p>
+<p>a的b次方取余m = a</p>
+<ul>
+<li><p>递归法：</p>
+<p>将b拆掉：偶数拆b/2，b/2。奇数拆b-1 + 1，b = 0时返回 1.</p>
+</li>
+<li><p>迭代法：</p>
+<p>将b拆为二进制，取b&amp;1，为真末位为1，否则为0</p>
+</li>
+</ul>
+</li>
+</ol>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E4%BA%8C%E5%88%86%E6%B3%95/" data-id="ck6il4cqv0001w8ti3ze4ewxl"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-算法笔记-贪心" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E8%B4%AA%E5%BF%83/"
+    >算法笔记-贪心</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E8%B4%AA%E5%BF%83/" class="article-date">
+  <time datetime="2020-02-11T12:19:44.589Z" itemprop="datePublished">2020-02-11</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="算法笔记-贪心"><a href="#算法笔记-贪心" class="headerlink" title="算法笔记-贪心"></a>算法笔记-贪心</h1><ol>
+<li><p>贪心</p>
+<p>pat-1022 月饼</p>
+<p>这题在数据类型上很多坑</p>
+<ul>
+<li><p>输出小数点后两位</p>
+</li>
+<li><p>总价它说是正数，需要用double来接</p>
+</li>
+</ul>
+</li>
+</ol>
+   <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">yb</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">double</span> volume = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> value = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> total_price = <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(yb a,yb b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.value &gt; b.value;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*3 20</span></span><br><span class="line"><span class="comment">18 15 10</span></span><br><span class="line"><span class="comment">75 72 45</span></span><br><span class="line"><span class="comment">94.50*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;yb&gt;info;</span><br><span class="line">    <span class="keyword">double</span> ans = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> n;</span><br><span class="line">  <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">  <span class="keyword">int</span> need;</span><br><span class="line">  <span class="built_in">cin</span>&gt;&gt;need;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">  &#123;</span><br><span class="line">      yb temp;</span><br><span class="line">      <span class="built_in">cin</span>&gt;&gt;temp.volume;</span><br><span class="line">      info.push_back(temp);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">  &#123;</span><br><span class="line">      <span class="keyword">double</span> x;</span><br><span class="line">      <span class="built_in">cin</span>&gt;&gt;x;</span><br><span class="line">      info[i].total_price = x;</span><br><span class="line">      info[i].value = x/info[i].volume;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  sort(info.begin(),info.end(),cmp);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(need&lt;=<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">if</span>(need&gt;=info[i].volume)</span><br><span class="line">    &#123;</span><br><span class="line">    ans+=info[i].value * info[i].volume;</span><br><span class="line">    need-=info[i].volume;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    &#123;</span><br><span class="line">        ans+=need*info[i].value;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;  </span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%.2f"</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li><p>区间贪心</p>
+<p>最多不相交区间问题</p>
+</li>
+</ol>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E8%B4%AA%E5%BF%83/" data-id="ck6il4cqx0002w8ti96ulgim2"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-算法笔记-递归" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -592,223 +820,13 @@
 
 </article>
     
-    <article id="post-CPP-STL-sort、reverse" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/02/02/CPP-STL-sort%E3%80%81reverse/"
-    >CPP-STL-sort、reverse</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/02/02/CPP-STL-sort%E3%80%81reverse/" class="article-date">
-  <time datetime="2020-02-02T03:56:36.230Z" itemprop="datePublished">2020-02-02</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int a[10] &#x3D; &#123;0,2,3,4,5,6,7,8,9,10&#125;;</span><br><span class="line">sort(a,a+10); &#x2F;&#x2F;sort（a+x，a+y） 排的是a[x]~a[y-1];</span><br><span class="line">vector&lt;int&gt; va &#x3D; &#123;0,2,3,4,5,6,7,8,9,10&#125;;</span><br><span class="line">sort(va.begin(),va.end());</span><br><span class="line">&#x2F;&#x2F;扩展：自定义&quot;&lt;&quot;</span><br><span class="line">struct student &#123;int score;&#125;;</span><br><span class="line">bool small(student a,student b)</span><br><span class="line">&#123;</span><br><span class="line">  return a.score&lt;b.score;</span><br><span class="line">&#125;</span><br><span class="line">vector&lt;student&gt; s;</span><br><span class="line">sort(s.begin(),s.end(),cmp);</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reverse(a.begin(),a.end());</span><br></pre></td></tr></table></figure>
-
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/02/CPP-STL-sort%E3%80%81reverse/" data-id="ck6hoxjvk0000s8tihpr12f60"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-CPP-预处理" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/02/01/CPP-%E9%A2%84%E5%A4%84%E7%90%86/"
-    >CPP-预处理</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/02/01/CPP-%E9%A2%84%E5%A4%84%E7%90%86/" class="article-date">
-  <time datetime="2020-02-01T04:14:52.985Z" itemprop="datePublished">2020-02-01</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h1><p>cpp有预处理器，用于程序<strong>编译</strong>前执行预处理程序</p>
-<p>预处理→编译→汇编→连接</p>
-<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><p>处理预处理变量，将程序中的预处理变量替换为相应值</p>
-<ul>
-<li>#define 定义一个预处理变量（<a href="">宏定义</a>） </li>
-<li>头文件保护符： #ifdef #ifdef #endif 判断预处理变量定义与否 #if 判断预处理变量真假</li>
-</ul>
-<p>如：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> area x * x  <span class="comment">//不加";"，因为替换</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> a = area(<span class="number">5</span>+<span class="number">5</span>); <span class="comment">// 预处理后变为： int a = 5+5*5+5; replace directly   </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><em>attentions:</em></p>
-<ol>
-<li>vars add “( )”</li>
-<li>the formula adds “()” according to the priority of the calculation</li>
-</ol>
-<p>预处理变量作用域为全部相关文件</p>
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/01/CPP-%E9%A2%84%E5%A4%84%E7%90%86/" data-id="ck6hoxjvy0007s8tibzsibjxh"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-leetcode-405数字转十六进制" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/01/25/leetcode-405%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/"
-    >leetcode.405数字转十六进制</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/01/25/leetcode-405%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/" class="article-date">
-  <time datetime="2020-01-25T12:45:26.000Z" itemprop="datePublished">2020-01-25</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="数组转十六进制"><a href="#数组转十六进制" class="headerlink" title="数组转十六进制"></a>数组转十六进制</h1><p><em>给定一个整数，编写一个算法将这个数转换为十六进制数。对于负整数，我们通常使用 补码运算 方法。</em></p>
-<p><em>注意:</em></p>
-<p><em>十六进制中所有字母(a-f)都必须是小写。</em><br><em>十六进制字符串中不能包含多余的前导零。如果要转化的数为0，那么以单个字符’0’来表示；对于其他情况，十六进制字符串中的第一个字符将不会是0字符。</em><br><em>给定的数确保在32位有符号整数范围内。</em><br><em>不能使用任何由库提供的将数字直接转换或格式化为十六进制的方法。</em><br><em>示例 1：</em></p>
-<p><em>输入:</em><br><em>26</em></p>
-<p><em>输出:</em><br>*”1a”*<br><em>示例 2：</em></p>
-<p><em>输入:</em><br><em>-1</em></p>
-<p><em>输出:</em><br>*”ffffffff”*</p>
-<h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><ul>
-<li>小写字母表示；0用“0”；</li>
-</ul>
-<p>正数简单，类似二进制，先取余再除。</p>
-<p>复数特殊，大佬题解的答案巧妙：全部转化 unsigned int  最大是2^32 -1 而ffff ffff也是2^32 -1 </p>
-<h2 id="二、代码"><a href="#二、代码" class="headerlink" title="二、代码"></a>二、代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">toHex</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">       </span><br><span class="line">        <span class="keyword">if</span>(num == <span class="number">0</span>) <span class="keyword">return</span> <span class="string">"0"</span>;</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">int</span> Unum = num;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">string</span> ans = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">while</span>(Unum)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> remainder = Unum%<span class="number">16</span>;</span><br><span class="line">            Unum/=<span class="number">16</span>;</span><br><span class="line">            ans = (remainder&gt;<span class="number">9</span>?(<span class="keyword">char</span>)(<span class="string">'a'</span>+remainder - <span class="number">10</span>):(<span class="keyword">char</span>)(<span class="string">'0'</span> + remainder)) + ans;</span><br><span class="line">        &#125;</span><br><span class="line">       <span class="keyword">return</span> ans; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/25/leetcode-405%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/" data-id="ck5z66etl0001moti4wxdhb1z"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
   </nav>
   
 </section>
