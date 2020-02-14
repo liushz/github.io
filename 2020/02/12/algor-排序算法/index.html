@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    CPP-STL-String |  shz&#39;s Blog
+    algor-排序算法 |  shz&#39;s Blog
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -34,7 +34,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-CPP-STL-String" class="article article-type-post" itemscope
+  <article id="post-algor-排序算法" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -42,7 +42,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  CPP-STL-String
+  algor-排序算法
 </h1>
   
 
@@ -51,8 +51,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/02/11/CPP-STL-String/" class="article-date">
-  <time datetime="2020-02-11T12:23:44.178Z" itemprop="datePublished">2020-02-11</time>
+      <a href="/2020/02/12/algor-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="article-date">
+  <time datetime="2020-02-12T03:21:57.031Z" itemprop="datePublished">2020-02-12</time>
 </a>
       
     </div>
@@ -75,20 +75,20 @@
       
 
       
-      <h1 id="String操作"><a href="#String操作" class="headerlink" title="String操作"></a>String操作</h1><ul>
-<li>string.substr(pos,n); //pos开始n个字符子串，包括pos处</li>
-<li>to_string(type); //转string</li>
-<li></li>
+      <h1 id="排序算法总结"><a href="#排序算法总结" class="headerlink" title="排序算法总结"></a>排序算法总结</h1><h2 id="一、选择排序"><a href="#一、选择排序" class="headerlink" title="一、选择排序"></a>一、选择排序</h2><ol>
+<li><p>简单选择：按顺序每次找出当前最大/最小元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;简单选择实现从小到大排序</span><br><span class="line">vector&lt;type&gt;a;</span><br><span class="line">int n &#x3D;a.size();</span><br><span class="line">bool cmp(vector&lt;type&gt;a,vector&lt;type&gt;b)</span><br><span class="line">&#123;</span><br><span class="line">  return a.value&lt;b.value;</span><br><span class="line">&#125;</span><br><span class="line">for(int i&#x3D;0;i&lt;n-1;i++)</span><br><span class="line">&#123;</span><br><span class="line">   int temp &#x3D; i;</span><br><span class="line">   for(int j&#x3D;i+1;j&lt;n;j++)</span><br><span class="line">   &#123;</span><br><span class="line">     if(cmp(a[temp],a[j]))</span><br><span class="line">     temp &#x3D; j;</span><br><span class="line">   &#125;</span><br><span class="line">   swap(a[temp],a[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>需要 n *(n - 1)/2 次比较，和 n次交换，不稳定 ：2 2 1 → 1 2 2</p>
+<ul>
+<li><p>时间O(n^2)</p>
+</li>
+<li><p>空间O(1)</p>
+</li>
 </ul>
-<h1 id="extra："><a href="#extra：" class="headerlink" title="extra："></a>extra：</h1><ol>
-<li><p>string转int：stoi不需要头文件</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stoi(<span class="built_in">string</span>,<span class="number">0</span>,n)  <span class="comment">// 0 is the beginning position,n is the number of "进制"</span></span><br></pre></td></tr></table></figure>
-
-
-
 </li>
 </ol>
-
+<h2 id="二、插入排序"><a href="#二、插入排序" class="headerlink" title="二、插入排序"></a>二、插入排序</h2>
       
       <!-- 打赏 -->
       
@@ -98,7 +98,7 @@
         
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/11/CPP-STL-String/" data-id="ck6il4cqp0000w8ti1nstfn59"
+      <a data-url="http://yoursite.com/2020/02/12/algor-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" data-id="ck6louv2m0000vkti6paadh4b"
         class="article-share-link">分享</a>
       
     </footer>
@@ -109,19 +109,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/02/12/algor-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            algor-排序算法
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E4%BA%8C%E5%88%86%E6%B3%95/" class="article-nav-link">
+      <a href="/2020/02/11/CPP-STL-String/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">算法笔记-二分法</div>
+        <div class="article-nav-title">CPP-STL-String</div>
       </a>
     
   </nav>

@@ -66,6 +66,88 @@
 
     
     
+    <article id="post-leetcode326" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/01/14/leetcode326/"
+    >leetcode326.3</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/01/14/leetcode326/" class="article-date">
+  <time datetime="2020-01-14T01:44:36.000Z" itemprop="datePublished">2020-01-14</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="3的幂"><a href="#3的幂" class="headerlink" title="3的幂"></a>3的幂</h1><p><em>给定一个整数，写一个函数来判断它是否是 3 的幂次方。</em></p>
+<h3 id="我采用的是最基础的方法，循环比较-3是否为0，除3，判断是否为1"><a href="#我采用的是最基础的方法，循环比较-3是否为0，除3，判断是否为1" class="headerlink" title="我采用的是最基础的方法，循环比较%3是否为0，除3，判断是否为1"></a>我采用的是最基础的方法，循环比较%3是否为0，除3，判断是否为1</h3><p><code>class Solution {
+public:
+    bool isPowerOfThree(int n) {
+      if(n == 1)
+      return true;
+      else if (n &lt; 1)
+      return false;
+      if(n % 3 !=0) return false;
+       n/=3;
+     return isPowerOfThree(n);
+    }
+};</code></p>
+<h4 id="注意1是3的最小次幂，0次"><a href="#注意1是3的最小次幂，0次" class="headerlink" title="注意1是3的最小次幂，0次"></a>注意1是3的最小次幂，0次</h4><p><img src="https://s2.ax1x.com/2020/01/14/lbJNNT.png" alt=""></p>
+<p>时间空间都一般般，中规中矩</p>
+<h2 id="其他方法：（leetcode官方题解）"><a href="#其他方法：（leetcode官方题解）" class="headerlink" title="其他方法：（leetcode官方题解）"></a>其他方法：（leetcode官方题解）</h2><ul>
+<li><p>最简单的，int32位，最大的3次幂为 <strong>2147483647</strong> （复习一下，int最大值 2^31 - 1)，然后用它对n取余为0的是正确结果</p>
+</li>
+<li><p>较奇妙的：例如10进制：1000000，将其转化为3进制形式字符串，如27=3^3 =1000(3)</p>
+<p>再去正则匹配，java两个函数就解决了，cpp我研究研究：</p>
+<p>*c++有正则匹配库 <a href="https://www.cnblogs.com/coolcpp/p/cpp-regex.html" target="_blank" rel="noopener">https://www.cnblogs.com/coolcpp/p/cpp-regex.html</a> *以后用到再研究</p>
+<p><em>以上都要注意3的幂不会小于1</em></p>
+</li>
+</ul>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/14/leetcode326/" data-id="ck5felx6k00029kti01ow2pim"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-void等区分" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 

@@ -66,6 +66,80 @@
 
     
     
+    <article id="post-CPP-STl-set" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/02/02/CPP-STl-set/"
+    >CPP-STl-set</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/02/02/CPP-STl-set/" class="article-date">
+  <time datetime="2020-02-02T05:04:59.325Z" itemprop="datePublished">2020-02-02</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="SET"><a href="#SET" class="headerlink" title="SET"></a>SET</h1><p>set内部采用<a href="">红黑树</a>，自动排序</p>
+<ul>
+<li>insert 插入</li>
+<li>count 是否存在</li>
+<li>size 大小</li>
+<li>empty 是否为空</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;;</span></span></span><br><span class="line"><span class="comment">///////////////</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nums = &#123; <span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">8</span> &#125;;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> c : nums)</span><br><span class="line">        s.insert(c); </span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> c : s)</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; c &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span> &lt;&lt; <span class="string">"当前set容量:"</span> &lt;&lt; s.size() &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>erase</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">s.erase(3);&#x2F;&#x2F;指定元素删除-- &quot;3&quot;</span><br><span class="line">s.erase(*(s.rbegin())); &#x2F;&#x2F;--最后一个（最大的）</span><br><span class="line"></span><br><span class="line">s.erase(s.begin());&#x2F;&#x2F;指定元素位置删除 --第一个（最小的）</span><br><span class="line"></span><br><span class="line">s.erase(s.begin(), s.end());&#x2F;&#x2F;指定范围删除--全部</span><br></pre></td></tr></table></figure>
+
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/02/CPP-STl-set/" data-id="ck6hoxjvx0006s8tig0vz6rs0"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-CPP-STL-sort、reverse" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -746,88 +820,6 @@
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2020/01/14/leetcode349/" data-id="ck5felx6f00019kticew136z3"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-leetcode326" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/01/14/leetcode326/"
-    >leetcode326.3</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/01/14/leetcode326/" class="article-date">
-  <time datetime="2020-01-14T01:44:36.000Z" itemprop="datePublished">2020-01-14</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="3的幂"><a href="#3的幂" class="headerlink" title="3的幂"></a>3的幂</h1><p><em>给定一个整数，写一个函数来判断它是否是 3 的幂次方。</em></p>
-<h3 id="我采用的是最基础的方法，循环比较-3是否为0，除3，判断是否为1"><a href="#我采用的是最基础的方法，循环比较-3是否为0，除3，判断是否为1" class="headerlink" title="我采用的是最基础的方法，循环比较%3是否为0，除3，判断是否为1"></a>我采用的是最基础的方法，循环比较%3是否为0，除3，判断是否为1</h3><p><code>class Solution {
-public:
-    bool isPowerOfThree(int n) {
-      if(n == 1)
-      return true;
-      else if (n &lt; 1)
-      return false;
-      if(n % 3 !=0) return false;
-       n/=3;
-     return isPowerOfThree(n);
-    }
-};</code></p>
-<h4 id="注意1是3的最小次幂，0次"><a href="#注意1是3的最小次幂，0次" class="headerlink" title="注意1是3的最小次幂，0次"></a>注意1是3的最小次幂，0次</h4><p><img src="https://s2.ax1x.com/2020/01/14/lbJNNT.png" alt=""></p>
-<p>时间空间都一般般，中规中矩</p>
-<h2 id="其他方法：（leetcode官方题解）"><a href="#其他方法：（leetcode官方题解）" class="headerlink" title="其他方法：（leetcode官方题解）"></a>其他方法：（leetcode官方题解）</h2><ul>
-<li><p>最简单的，int32位，最大的3次幂为 <strong>2147483647</strong> （复习一下，int最大值 2^31 - 1)，然后用它对n取余为0的是正确结果</p>
-</li>
-<li><p>较奇妙的：例如10进制：1000000，将其转化为3进制形式字符串，如27=3^3 =1000(3)</p>
-<p>再去正则匹配，java两个函数就解决了，cpp我研究研究：</p>
-<p>*c++有正则匹配库 <a href="https://www.cnblogs.com/coolcpp/p/cpp-regex.html" target="_blank" rel="noopener">https://www.cnblogs.com/coolcpp/p/cpp-regex.html</a> *以后用到再研究</p>
-<p><em>以上都要注意3的幂不会小于1</em></p>
-</li>
-</ul>
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/14/leetcode326/" data-id="ck5felx6k00029kti01ow2pim"
         class="article-share-link">分享</a>
       
     </footer>
