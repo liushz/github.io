@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    CPP-STL-sort、reverse |  shz&#39;s Blog
+    算法笔记-第k大 |  shz&#39;s Blog
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -34,7 +34,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-CPP-STL-sort、reverse" class="article article-type-post" itemscope
+  <article id="post-算法笔记-第k大" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -42,7 +42,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  CPP-STL-sort、reverse
+  算法笔记-第k大
 </h1>
   
 
@@ -51,8 +51,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/02/02/CPP-STL-sort%E3%80%81reverse/" class="article-date">
-  <time datetime="2020-02-02T03:56:36.230Z" itemprop="datePublished">2020-02-02</time>
+      <a href="/2020/02/27/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E7%AC%ACk%E5%A4%A7/" class="article-date">
+  <time datetime="2020-02-27T04:58:34.665Z" itemprop="datePublished">2020-02-27</time>
 </a>
       
     </div>
@@ -75,11 +75,10 @@
       
 
       
-      <h1 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">10</span>] = &#123;<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</span><br><span class="line">sort(a,a+<span class="number">10</span>); <span class="comment">//sort（a+x，a+y） 排的是a[x]~a[y-1];</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; va = &#123;<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</span><br><span class="line">sort(va.begin(),va.end()); <span class="comment">//sort(va.begin(),va.begin()+va.size())</span></span><br><span class="line"><span class="comment">//扩展：自定义"&lt;"</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">student</span> &#123;</span><span class="keyword">int</span> score;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">small</span><span class="params">(student a,student b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a.score&lt;b.score;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;student&gt; s;</span><br><span class="line">sort(s.begin(),s.end(),cmp);</span><br></pre></td></tr></table></figure>
+      <h1 id="算法笔记-第k大"><a href="#算法笔记-第k大" class="headerlink" title="算法笔记-第k大"></a>算法笔记-第k大</h1><h2 id="一、切分实现"><a href="#一、切分实现" class="headerlink" title="一、切分实现"></a>一、切分实现</h2><p>用快排的切分函数，将数组划分为两部分，如果k == h - m+1;返回该值，否则相应的去前半部分 or 后半部分找</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">int cut (vector&lt;int&gt;&amp;a,int l,int h)</span><br><span class="line">&#123;</span><br><span class="line">  int cutPos &#x3D; srand((int)time(0)); &#x2F;&#x2F;随机位置</span><br><span class="line">  int temp &#x3D; a[curPos];</span><br><span class="line">  int i &#x3D; l,j &#x3D; h;</span><br><span class="line">  while(i &lt; j)</span><br><span class="line">  &#123;</span><br><span class="line">    while(i &lt; j&amp;&amp;a[j] &gt;&#x3D; temp) j--;</span><br><span class="line">    while(i &lt; j&amp;&amp;a[i] &lt;&#x3D; temp) i++;</span><br><span class="line">    swap(a[i],a[j]);</span><br><span class="line">  &#125;</span><br><span class="line">  a[i] &#x3D; temp;</span><br><span class="line">  return i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-<h1 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reverse(a.begin(),a.end());</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">kthLargest</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;a,<span class="keyword">int</span> k,<span class="keyword">int</span> l,<span class="keyword">int</span> h)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(h == l)</span><br><span class="line">   <span class="keyword">return</span> a[l];</span><br><span class="line">   <span class="keyword">int</span> m = cut(a,l,h);</span><br><span class="line">   <span class="keyword">if</span>(m == h - k +<span class="number">1</span>) <span class="keyword">return</span> a[m];</span><br><span class="line">   <span class="keyword">if</span>(m &gt; h-k+<span class="number">1</span>) kthLargest(a,k-h+m<span class="number">-1</span>,l,m - <span class="number">1</span>);</span><br><span class="line">   <span class="keyword">else</span></span><br><span class="line">   kthLargest(a,k,m+<span class="number">1</span>,h);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -91,7 +90,7 @@
         
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/02/CPP-STL-sort%E3%80%81reverse/" data-id="ck6hoxjvk0000s8tihpr12f60"
+      <a data-url="http://yoursite.com/2020/02/27/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E7%AC%ACk%E5%A4%A7/" data-id="ck773d7s80003zwti5elx5moj"
         class="article-share-link">分享</a>
       
     </footer>
@@ -102,19 +101,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/02/02/CPP-STl-set/" class="article-nav-link">
+      <a href="/2020/02/29/PAT-%201019%20%E6%95%B0%E5%AD%97%E9%BB%91%E6%B4%9E%20%EF%BC%88%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86+%E7%BB%86%E8%8A%82%EF%BC%89/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            CPP-STl-set
+            PAT- 1019 数字黑洞 （字符串处理+细节）
           
         </div>
       </a>
     
     
-      <a href="/2020/02/01/CPP-%E9%A2%84%E5%A4%84%E7%90%86/" class="article-nav-link">
+      <a href="/2020/02/25/PAT-%201040%20%E6%9C%89%E5%87%A0%E4%B8%AAPAT%20%EF%BC%88%E6%89%93%E8%A1%A8%E6%B3%95%EF%BC%89/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">CPP-预处理</div>
+        <div class="article-nav-title">PAT- 1040 有几个PAT （打表法）</div>
       </a>
     
   </nav>

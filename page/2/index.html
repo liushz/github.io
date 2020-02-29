@@ -66,6 +66,271 @@
 
     
     
+    <article id="post-PAT-B- 1022 D进制的A+B (进制转换)" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/02/09/PAT-B-%201022%20D%E8%BF%9B%E5%88%B6%E7%9A%84A+B%20(%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2)/"
+    >PAT-B- 1022 D进制的A+B (进制转换)</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/02/09/PAT-B-%201022%20D%E8%BF%9B%E5%88%B6%E7%9A%84A+B%20(%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2)/" class="article-date">
+  <time datetime="2020-02-09T03:20:20.339Z" itemprop="datePublished">2020-02-09</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="PAT-B-1022-D进制的A-B-进制转换"><a href="#PAT-B-1022-D进制的A-B-进制转换" class="headerlink" title="PAT-B- 1022 D进制的A+B (进制转换)"></a>PAT-B- 1022 D进制的A+B (进制转换)</h1><p>基础进制转换题，在此记下模板：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="function"><span class="built_in">string</span> <span class="title">hexConvert</span><span class="params">(<span class="built_in">string</span> str,<span class="keyword">int</span> hex)</span>  <span class="comment">//str:string need to be converted</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">  <span class="built_in">string</span> ans=<span class="string">""</span>;  <span class="comment">//answer string</span></span><br><span class="line">  <span class="keyword">int</span> num = stoi(str,<span class="number">0</span>,<span class="number">10</span>);  <span class="comment">//convert string to int</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">while</span>(num)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">int</span> temp = num % hex;</span><br><span class="line">    num /= hex;</span><br><span class="line">    ans = to_string(temp)+ans;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">if</span>(ans == <span class="string">""</span>) <span class="keyword">return</span> <span class="string">"0"</span>;</span><br><span class="line">  <span class="keyword">return</span> ans;</span><br><span class="line">  </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/09/PAT-B-%201022%20D%E8%BF%9B%E5%88%B6%E7%9A%84A+B%20(%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2)/" data-id="ck6hoxjvu0003s8ti8vgfds8h"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-leetcode-1-两数之和" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/02/05/leetcode-1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/"
+    >leetcode-1-两数之和</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/02/05/leetcode-1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" class="article-date">
+  <time datetime="2020-02-05T05:08:28.420Z" itemprop="datePublished">2020-02-05</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="leetcode-1-两数之和"><a href="#leetcode-1-两数之和" class="headerlink" title="leetcode-1-两数之和"></a>leetcode-1-两数之和</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">     <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; record;</span><br><span class="line">     <span class="keyword">int</span> len = nums.size();</span><br><span class="line">        </span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; len;i++)</span><br><span class="line">     &#123;</span><br><span class="line">         <span class="keyword">int</span> difference = target - nums[i];</span><br><span class="line">         <span class="keyword">if</span>(record.find(difference)!=record.end())</span><br><span class="line">             <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&#123;i,record[difference]&#125;;</span><br><span class="line">         record[nums[i]] = i;</span><br><span class="line">     &#125;<span class="comment">//end for</span></span><br><span class="line">       <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&#123;&#125;; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/05/leetcode-1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" data-id="ck6hoxjvv0004s8ti1m4s1csl"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-CPP-STL-关联容器" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/02/05/CPP-STL-%E5%85%B3%E8%81%94%E5%AE%B9%E5%99%A8/"
+    >CPP-STL-关联容器</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/02/05/CPP-STL-%E5%85%B3%E8%81%94%E5%AE%B9%E5%99%A8/" class="article-date">
+  <time datetime="2020-02-05T04:50:32.019Z" itemprop="datePublished">2020-02-05</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="关联容器"><a href="#关联容器" class="headerlink" title="关联容器"></a>关联容器</h1><p>我目前见过的</p>
+<ul>
+<li>set<element_type><ul>
+<li>insert();</li>
+<li>count(); //0 or 1</li>
+</ul>
+</li>
+<li>unordered_map&lt;key_type,variable_type&gt;<ul>
+<li>find(key)!=uMap.end();</li>
+</ul>
+</li>
+<li>map</li>
+</ul>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/05/CPP-STL-%E5%85%B3%E8%81%94%E5%AE%B9%E5%99%A8/" data-id="ck6hoxjvr0001s8tifqa6drxa"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-CPP-STL-vector" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/02/05/CPP-STL-vector/"
+    >CPP-STL-vector</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/02/05/CPP-STL-vector/" class="article-date">
+  <time datetime="2020-02-05T03:53:48.437Z" itemprop="datePublished">2020-02-05</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h1><p>常用：</p>
+<ul>
+<li>push_back()</li>
+<li>insert()</li>
+<li>size(),empty()</li>
+</ul>
+<p>借助于<algorithm> //vector don’t have member find</p>
+<ul>
+<li><p>find(a.begin(),a.end(),x) //form the begin to the end .find the pos iterator of x </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it = find(a.begin(),a.end(),x)  <span class="comment">//algorithm</span></span><br><span class="line"><span class="keyword">return</span> *it  <span class="comment">// return it-a.begin()  is type int</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/05/CPP-STL-vector/" data-id="ck6hoxjvs0002s8ti7xn88g3d"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-CPP-STl-set" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -117,6 +382,7 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">s.erase(3);&#x2F;&#x2F;指定元素删除-- &quot;3&quot;</span><br><span class="line">s.erase(*(s.rbegin())); &#x2F;&#x2F;--最后一个（最大的）</span><br><span class="line"></span><br><span class="line">s.erase(s.begin());&#x2F;&#x2F;指定元素位置删除 --第一个（最小的）</span><br><span class="line"></span><br><span class="line">s.erase(s.begin(), s.end());&#x2F;&#x2F;指定范围删除--全部</span><br></pre></td></tr></table></figure>
 
+<h2 id="extra："><a href="#extra：" class="headerlink" title="extra："></a>extra：</h2><h3 id="multiset"><a href="#multiset" class="headerlink" title="multiset"></a>multiset</h3><p>可存储多个元素</p>
 
       
       <!-- 打赏 -->
@@ -175,7 +441,7 @@
       
 
       
-      <h1 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int a[10] &#x3D; &#123;0,2,3,4,5,6,7,8,9,10&#125;;</span><br><span class="line">sort(a,a+10); &#x2F;&#x2F;sort（a+x，a+y） 排的是a[x]~a[y-1];</span><br><span class="line">vector&lt;int&gt; va &#x3D; &#123;0,2,3,4,5,6,7,8,9,10&#125;;</span><br><span class="line">sort(va.begin(),va.end());</span><br><span class="line">&#x2F;&#x2F;扩展：自定义&quot;&lt;&quot;</span><br><span class="line">struct student &#123;int score;&#125;;</span><br><span class="line">bool small(student a,student b)</span><br><span class="line">&#123;</span><br><span class="line">  return a.score&lt;b.score;</span><br><span class="line">&#125;</span><br><span class="line">vector&lt;student&gt; s;</span><br><span class="line">sort(s.begin(),s.end(),cmp);</span><br></pre></td></tr></table></figure>
+      <h1 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">10</span>] = &#123;<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</span><br><span class="line">sort(a,a+<span class="number">10</span>); <span class="comment">//sort（a+x，a+y） 排的是a[x]~a[y-1];</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; va = &#123;<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</span><br><span class="line">sort(va.begin(),va.end()); <span class="comment">//sort(va.begin(),va.begin()+va.size())</span></span><br><span class="line"><span class="comment">//扩展：自定义"&lt;"</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">student</span> &#123;</span><span class="keyword">int</span> score;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">small</span><span class="params">(student a,student b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a.score&lt;b.score;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;student&gt; s;</span><br><span class="line">sort(s.begin(),s.end(),cmp);</span><br></pre></td></tr></table></figure>
 
 
 
@@ -486,340 +752,6 @@
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2020/01/25/CPP-STL-queue/" data-id="ck5tj5yc20000pgti3qjtd5fg"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-leetcode-401" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/01/23/leetcode-401/"
-    >leetcode.401</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/01/23/leetcode-401/" class="article-date">
-  <time datetime="2020-01-23T09:27:00.000Z" itemprop="datePublished">2020-01-23</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="leetcode-401-二进制手表"><a href="#leetcode-401-二进制手表" class="headerlink" title="leetcode.401 二进制手表"></a>leetcode.401 二进制手表</h1><p><em>给定一个非负整数 n 代表当前 LED 亮着的数量，返回所有可能的时间。</em></p>
-<p><em>案例:</em></p>
-<p><em>输入: n = 1</em><br><em>返回: [“1:00”, “2:00”, “4:00”, “8:00”, “0:01”, “0:02”, “0:04”, “0:08”, “0:16”, “0:32”]</em></p>
-<p><em>注意事项:</em></p>
-<p><em>输出的顺序没有要求。</em><br><em>小时不会以零开头，比如 “01:00” 是不允许的，应为 “1:00”。</em><br><em>分钟必须由两位数组成，可能会以零开头，比如 “10:2” 是无效的，应为 “10:02”。</em></p>
-<h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><p>没想出来，只想出枚举（用switch列出所有可能情况）和暴力列出可能序列方法。</p>
-<p>题解区大佬给的方法是：</p>
-<p>遍历0<del>11和0</del>59中含二进制1的情况，如果等于num则输出</p>
-<h3 id="属于反向思维，不用num去找时间，看所有序列中符合num的有多少种"><a href="#属于反向思维，不用num去找时间，看所有序列中符合num的有多少种" class="headerlink" title="属于反向思维，不用num去找时间，看所有序列中符合num的有多少种"></a>属于反向思维，不用num去找时间，看所有序列中符合num的有多少种</h3><h3 id="查找二进制1的式子：-n-n-amp-n-1-此时找到一个-1，并消去（前提n不为1）"><a href="#查找二进制1的式子：-n-n-amp-n-1-此时找到一个-1，并消去（前提n不为1）" class="headerlink" title="查找二进制1的式子： n = n&amp;(n - 1); //此时找到一个 1，并消去（前提n不为1）"></a>查找二进制1的式子： n = n&amp;(n - 1); //此时找到一个 1，并消去（前提n不为1）</h3><h2 id="二、代码"><a href="#二、代码" class="headerlink" title="二、代码"></a>二、代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; readBinaryWatch(<span class="keyword">int</span> num) &#123;</span><br><span class="line">      </span><br><span class="line">       <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; ans;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">12</span>;i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">60</span>;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(count1(i) + count1(j) == num)</span><br><span class="line">                    ans.push_back(to_string(i) + <span class="string">":"</span> + (j &lt; <span class="number">10</span>?<span class="string">"0"</span>+to_string(j):to_string(j))); <span class="comment">//注意</span></span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">count1</span><span class="params">(<span class="keyword">int</span> n)</span> <span class="comment">// 正整形中二进制1的个数</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(n)</span><br><span class="line">        &#123;</span><br><span class="line">            n = n&amp;(n - <span class="number">1</span>);</span><br><span class="line">            sum++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="三、复杂度"><a href="#三、复杂度" class="headerlink" title="三、复杂度"></a>三、复杂度</h2><p>每次都要循环12*60</p>
-<p>改进：</p>
-<ol>
-<li>剪枝：当小时所占 1 已达到num就结束</li>
-<li></li>
-</ol>
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/23/leetcode-401/" data-id="ck5tj5ydb0001pgti1ye9gtnz"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-leetcode-371" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/01/19/leetcode-371/"
-    >leetcode.371</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/01/19/leetcode-371/" class="article-date">
-  <time datetime="2020-01-19T01:34:44.000Z" itemprop="datePublished">2020-01-19</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="leetcode-371-两整数和"><a href="#leetcode-371-两整数和" class="headerlink" title="leetcode.371 两整数和"></a>leetcode.371 两整数和</h1><p><em>不使用运算符 + 和 - ，计算两整数 a 、b 之和。</em></p>
-<p><em>示例 1:</em></p>
-<p><em>输入: a = 1, b = 2</em><br><em>输出: 3</em><br><em>示例 2:</em></p>
-<p><em>输入: a = -2, b = 3</em><br><em>输出: 1</em></p>
-<h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><p>一开始想不出来，但隐约觉得是用二进制实现加法，看了题解果然是，二进制加法是组原学的，学的一知半解，正好复习一下。</p>
-<p>加法拆分两步：</p>
-<ol>
-<li><p>a b取亦或^（第一次见cpp亦或，惭愧-。-），实现 不进位的相加和</p>
-<p>1 1 → 0 （进位）</p>
-<p>0 0 → 0</p>
-<p>1 0 →1</p>
-<p>0 1 →1</p>
-<p>如 3 9 ： 0011 ^ 1001 → 1010 （最后一位产生进位）</p>
-</li>
-<li><p>a b 取和&amp; ，实现进位</p>
-<p>如：0001 &amp; 0001 → 0001 末位进位1 </p>
-<p>此时知道哪位进位了，但进位方向是向前一位，所以左移</p>
-<p>auto carry = ((unsigned int )(a &amp; b))&lt;&lt;1;</p>
-</li>
-</ol>
-<p>此时相当于得到了新的两个数ab，相加其得结果（不进位和+进位），那就重复上述步骤呗</p>
-<p>直至进位为0，就是和</p>
-<h2 id="二、代码"><a href="#二、代码" class="headerlink" title="二、代码"></a>二、代码</h2><p>class Solution {<br>public:<br>    int getSum(int a, int b) {<br>    int c=a;</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getSum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c=a;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (b) &#123;</span><br><span class="line">		c = a ^ b;</span><br><span class="line">	    b = ((<span class="keyword">unsigned</span> <span class="keyword">int</span>)(a &amp; b)) &lt;&lt; <span class="number">1</span>;</span><br><span class="line">		a = c;</span><br><span class="line">	&#125;</span><br><span class="line">     <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="三、运行结果"><a href="#三、运行结果" class="headerlink" title="三、运行结果"></a>三、运行结果</h2><p>图床挂了mmp</p>
-<p>执行结果：</p>
-<p>通过</p>
-<p>显示详情</p>
-<p>执行用时 :0 ms, 在所有 C++ 提交中击败了100.00%的用户</p>
-<p>内存消耗 :8.3 MB, 在所有 C++ 提交中击败了5.52%的用户</p>
-<p>内存这么差？用了一个int就这么差的吗？-。-</p>
-<h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><ul>
-<li>整数加法的原理：合区+进位</li>
-<li>进位的单词：carry</li>
-</ul>
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/19/leetcode-371/" data-id="ck5kdc6hb00008otigu3wd57c"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-leetcode367" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/01/15/leetcode367/"
-    >leetcode367</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/01/15/leetcode367/" class="article-date">
-  <time datetime="2020-01-15T14:05:01.000Z" itemprop="datePublished">2020-01-15</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="leetcode-367-有效的完全平方数"><a href="#leetcode-367-有效的完全平方数" class="headerlink" title="leetcode.367 有效的完全平方数"></a>leetcode.367 有效的完全平方数</h1><p>给定一个正整数 num，编写一个函数，如果 num 是一个完全平方数，则返回 True，否则返回 False。</p>
-<p>说明：不要使用任何内置的库函数，如  sqrt。</p>
-<p>示例 1：</p>
-<p>输入：16<br>输出：True<br>示例 2：</p>
-<p>输入：14<br>输出：False</p>
-<h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><p>三种方法：</p>
-<ol>
-<li><p>暴力找法：从1开始，将其平方与num比较，直至等于（true）或者大于（false）num</p>
-<p>注意：平方和平方的基数都得用long，最好long long，因为可能平方超int最大值 2^31 -1 </p>
-</li>
-<li><p>二分查找法：从2~num二分找</p>
-</li>
-<li><p>牛顿迭代法</p>
-<p><img src="https://s2.ax1x.com/2020/01/15/lXhKxO.png" alt=""></p>
-</li>
-</ol>
-<ul>
-<li><p>设方程f（x） = num - x0^2 = 0</p>
-</li>
-<li><p>给一个初始 x0 = num/2,比较其平方和num</p>
-</li>
-<li><p>$$<br>易知 f(x0)’ = f(x0)/(x1 - x0)</p>
-<p>f(x0) = num - x0^2</p>
-<p>f(x0)’ = 2x0</p>
-<p>得 x1 = (num + x0^2 )/ 2x0<br>$$</p>
-</li>
-</ul>
-<h2 id="二、-代码"><a href="#二、-代码" class="headerlink" title="二、 代码"></a>二、 代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isPerfectSquare(int num) &#123;</span><br><span class="line">    long long  i &#x3D; 1;</span><br><span class="line">    long long square&#x3D;0;</span><br><span class="line">    while(square&lt;num)</span><br><span class="line">    &#123;</span><br><span class="line">      square &#x3D; i * i;</span><br><span class="line">        if(square &#x3D;&#x3D; num)</span><br><span class="line">            return true;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="三、复杂度"><a href="#三、复杂度" class="headerlink" title="三、复杂度"></a>三、复杂度</h2><p>我的遍历法<br>$$<br>O(√n)<br>$$<br><img src="https://s2.ax1x.com/2020/01/15/lX4Xhq.png" alt=""></p>
-<p>一开始时间上是0ms，现在又4了，不过还不错</p>
-<p>二分和牛顿应该都是logn，牛顿比较有技术含量，体现学识渊博（狗头）-。-</p>
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/15/leetcode367/" data-id="ck5felx4000009kticnc95o1p"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-leetcode349" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/01/14/leetcode349/"
-    >leetcode349</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/01/14/leetcode349/" class="article-date">
-  <time datetime="2020-01-14T04:18:57.000Z" itemprop="datePublished">2020-01-14</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="leetcode349-两数组的交集"><a href="#leetcode349-两数组的交集" class="headerlink" title="leetcode349-两数组的交集"></a>leetcode349-两数组的交集</h1><p>错了一次</p>
-<p>一、思想：</p>
-<ul>
-<li>set装一个数组，遍历另一个数组，从set里找，找到删掉这个元素，因为要求交集不重复</li>
-</ul>
-<p>二、代码：</p>
-<p><em>markdown贴代码是个问题</em></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; intersection(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2) &#123;</span><br><span class="line">        <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; hash1;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i:nums1) hash1.insert(i);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i:nums2) </span><br><span class="line">            <span class="keyword">if</span> (hash1.<span class="built_in">find</span>(i)!=hash1.<span class="built_in">end</span>()) &#123;</span><br><span class="line">                hash1.erase(i);</span><br><span class="line">                res.push_back(i);</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>解决了</p>
-<p>三、复杂度</p>
-<p><img src="https://s2.ax1x.com/2020/01/14/lbfDH0.png" alt=""></p>
-<p><code></code></p>
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/14/leetcode349/" data-id="ck5felx6f00019kticew136z3"
         class="article-share-link">分享</a>
       
     </footer>

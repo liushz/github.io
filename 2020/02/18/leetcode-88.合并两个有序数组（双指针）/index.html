@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    CPP-STL-sort、reverse |  shz&#39;s Blog
+    leetcode-88.合并两个有序数组（双指针） |  shz&#39;s Blog
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -34,7 +34,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-CPP-STL-sort、reverse" class="article article-type-post" itemscope
+  <article id="post-leetcode-88.合并两个有序数组（双指针）" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -42,7 +42,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  CPP-STL-sort、reverse
+  leetcode-88.合并两个有序数组（双指针）
 </h1>
   
 
@@ -51,8 +51,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/02/02/CPP-STL-sort%E3%80%81reverse/" class="article-date">
-  <time datetime="2020-02-02T03:56:36.230Z" itemprop="datePublished">2020-02-02</time>
+      <a href="/2020/02/18/leetcode-88.%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%EF%BC%88%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%89/" class="article-date">
+  <time datetime="2020-02-18T03:38:59.637Z" itemprop="datePublished">2020-02-18</time>
 </a>
       
     </div>
@@ -75,12 +75,24 @@
       
 
       
-      <h1 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">10</span>] = &#123;<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</span><br><span class="line">sort(a,a+<span class="number">10</span>); <span class="comment">//sort（a+x，a+y） 排的是a[x]~a[y-1];</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; va = &#123;<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</span><br><span class="line">sort(va.begin(),va.end()); <span class="comment">//sort(va.begin(),va.begin()+va.size())</span></span><br><span class="line"><span class="comment">//扩展：自定义"&lt;"</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">student</span> &#123;</span><span class="keyword">int</span> score;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">small</span><span class="params">(student a,student b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a.score&lt;b.score;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;student&gt; s;</span><br><span class="line">sort(s.begin(),s.end(),cmp);</span><br></pre></td></tr></table></figure>
+      <h1 id="leetcode-88-合并两个有序数组（双指针）"><a href="#leetcode-88-合并两个有序数组（双指针）" class="headerlink" title="leetcode-88.合并两个有序数组（双指针）"></a>leetcode-88.合并两个有序数组（双指针）</h1><p><em>给定两个有序整数数组 nums1 和 nums2，将 nums2 合并到 nums1 中，使得 num1 成为一个有序数组。</em></p>
+<p><em>说明:</em></p>
+<p><em>初始化 nums1 和 nums2 的元素数量分别为 m 和 n。</em><br><em>你可以假设 nums1 有足够的空间（空间大小大于或等于 m + n）来保存 nums2 中的元素。</em><br><em>示例:</em></p>
+<p><em>输入:</em><br><em>nums1 = [1,2,3,0,0,0], m = 3</em><br><em>nums2 = [2,5,6],       n = 3</em></p>
+<p><em>输出: [1,2,2,3,5,6]</em></p>
+<h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><p>两种：</p>
+<ol>
+<li><p>先将nums2移到nums1后n位，再快排sort</p>
+</li>
+<li><p>双指针，本题根本目的是从后向前将nums2的n个按顺序插入到nums1中</p>
+<p>注意n or m为0的情况</p>
+</li>
+</ol>
+<h2 id="二、代码"><a href="#二、代码" class="headerlink" title="二、代码"></a>二、代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="keyword">int</span> m, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> last = n+m<span class="number">-1</span>;</span><br><span class="line">        n--;</span><br><span class="line">        m--;  </span><br><span class="line">        <span class="keyword">while</span>(n&gt;=<span class="number">0</span>) <span class="comment">//n插完就完事</span></span><br><span class="line">        &#123;</span><br><span class="line">          <span class="keyword">if</span>(m&lt;<span class="number">0</span> || nums2[n]&gt;=nums1[m])  <span class="comment">//注意如果m插完后0，此处m = -1，不能用!m;优先用n处</span></span><br><span class="line">              nums1[last--] = nums2[n--];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                nums1[last--] = nums1[m--];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
 
-<h1 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reverse(a.begin(),a.end());</span><br></pre></td></tr></table></figure>
-
+<h1 id="三、复杂度"><a href="#三、复杂度" class="headerlink" title="三、复杂度"></a>三、复杂度</h1><p>O（m+n)  例如完全颠倒：nums1：456000  nums2:123</p>
 
       
       <!-- 打赏 -->
@@ -91,7 +103,7 @@
         
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/02/CPP-STL-sort%E3%80%81reverse/" data-id="ck6hoxjvk0000s8tihpr12f60"
+      <a data-url="http://yoursite.com/2020/02/18/leetcode-88.%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%EF%BC%88%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%89/" data-id="ck773d7r70001zwtia06n4sly"
         class="article-share-link">分享</a>
       
     </footer>
@@ -102,19 +114,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/02/02/CPP-STl-set/" class="article-nav-link">
+      <a href="/2020/02/25/PAT-%201040%20%E6%9C%89%E5%87%A0%E4%B8%AAPAT%20%EF%BC%88%E6%89%93%E8%A1%A8%E6%B3%95%EF%BC%89/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            CPP-STl-set
+            PAT- 1040 有几个PAT （打表法）
           
         </div>
       </a>
     
     
-      <a href="/2020/02/01/CPP-%E9%A2%84%E5%A4%84%E7%90%86/" class="article-nav-link">
+      <a href="/2020/02/12/algor-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">CPP-预处理</div>
+        <div class="article-nav-title">algor-排序算法</div>
       </a>
     
   </nav>

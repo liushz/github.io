@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    CPP-STL-sort、reverse |  shz&#39;s Blog
+    PAT- 1040 有几个PAT （打表法） |  shz&#39;s Blog
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -34,7 +34,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-CPP-STL-sort、reverse" class="article article-type-post" itemscope
+  <article id="post-PAT- 1040 有几个PAT （打表法）" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -42,7 +42,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  CPP-STL-sort、reverse
+  PAT- 1040 有几个PAT （打表法）
 </h1>
   
 
@@ -51,8 +51,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/02/02/CPP-STL-sort%E3%80%81reverse/" class="article-date">
-  <time datetime="2020-02-02T03:56:36.230Z" itemprop="datePublished">2020-02-02</time>
+      <a href="/2020/02/25/PAT-%201040%20%E6%9C%89%E5%87%A0%E4%B8%AAPAT%20%EF%BC%88%E6%89%93%E8%A1%A8%E6%B3%95%EF%BC%89/" class="article-date">
+  <time datetime="2020-02-25T04:56:25.158Z" itemprop="datePublished">2020-02-25</time>
 </a>
       
     </div>
@@ -75,11 +75,18 @@
       
 
       
-      <h1 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">10</span>] = &#123;<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</span><br><span class="line">sort(a,a+<span class="number">10</span>); <span class="comment">//sort（a+x，a+y） 排的是a[x]~a[y-1];</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; va = &#123;<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</span><br><span class="line">sort(va.begin(),va.end()); <span class="comment">//sort(va.begin(),va.begin()+va.size())</span></span><br><span class="line"><span class="comment">//扩展：自定义"&lt;"</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">student</span> &#123;</span><span class="keyword">int</span> score;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">small</span><span class="params">(student a,student b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a.score&lt;b.score;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;student&gt; s;</span><br><span class="line">sort(s.begin(),s.end(),cmp);</span><br></pre></td></tr></table></figure>
+      <h1 id="PAT-1040-有几个PAT-（打表法）"><a href="#PAT-1040-有几个PAT-（打表法）" class="headerlink" title="PAT- 1040 有几个PAT （打表法）"></a>PAT- <strong>1040</strong> <strong>有几个PAT</strong> （打表法）</h1><p><em>字符串 <code>APPAPT</code> 中包含了两个单词 <code>PAT</code>，其中第一个 <code>PAT</code> 是第 2 位(<code>P</code>)，第 4 位(<code>A</code>)，第 6 位(<code>T</code>)；第二个 <code>PAT</code> 是第 3 位(<code>P</code>)，第 4 位(<code>A</code>)，第 6 位(<code>T</code>)。</em></p>
+<p><em>现给定字符串，问一共可以形成多少个 <code>PAT</code>？</em></p>
+<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a><em>输入格式：</em></h3><p><em>输入只有一行，包含一个字符串，长度不超过105，只包含 <code>P</code>、<code>A</code>、<code>T</code> 三种字母。</em></p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a><em>输出格式：</em></h3><p><em>在一行中输出给定字符串中包含多少个 <code>PAT</code>。由于结果可能比较大，只输出对 1000000007 取余数的结果。</em></p>
+<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">APPAPT</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
 
 
 
-<h1 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reverse(a.begin(),a.end());</span><br></pre></td></tr></table></figure>
+<h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><p>注意到每个PAT可由一个A和其左P右T组成，某处 A所能代表的PAT个数为： A左方P个数 * A 右方T个数，用两个表存储 i 出的左P数和右T数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;vector&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    string s;</span><br><span class="line">    getline(cin,s);</span><br><span class="line">    vector&lt;int&gt;p(s.size()),t(s.size());</span><br><span class="line">    int count &#x3D; 0;</span><br><span class="line">    int sum &#x3D; 0;</span><br><span class="line">    for(int i&#x3D;0;i&lt;s.size();i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(s[i] &#x3D;&#x3D; &#39;P&#39;)</span><br><span class="line">        p[i] &#x3D; ++count;</span><br><span class="line">        else</span><br><span class="line">        p[i] &#x3D; count;</span><br><span class="line">    &#125;</span><br><span class="line">    count &#x3D; 0;</span><br><span class="line">     for(int i&#x3D;s.size()-1;i&gt;&#x3D;0;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        if(s[i] &#x3D;&#x3D; &#39;T&#39;)</span><br><span class="line">        t[i] &#x3D; ++count;</span><br><span class="line">        else</span><br><span class="line">        t[i] &#x3D; count;</span><br><span class="line">        </span><br><span class="line">        if(s[i] &#x3D;&#x3D; &#39;A&#39;)</span><br><span class="line">        sum &#x3D; (sum + p[i]*t[i])%1000000007;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -91,7 +98,7 @@
         
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/02/CPP-STL-sort%E3%80%81reverse/" data-id="ck6hoxjvk0000s8tihpr12f60"
+      <a data-url="http://yoursite.com/2020/02/25/PAT-%201040%20%E6%9C%89%E5%87%A0%E4%B8%AAPAT%20%EF%BC%88%E6%89%93%E8%A1%A8%E6%B3%95%EF%BC%89/" data-id="ck773d7rb0002zwtieer9edmn"
         class="article-share-link">分享</a>
       
     </footer>
@@ -102,19 +109,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/02/02/CPP-STl-set/" class="article-nav-link">
+      <a href="/2020/02/27/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E7%AC%ACk%E5%A4%A7/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            CPP-STl-set
+            算法笔记-第k大
           
         </div>
       </a>
     
     
-      <a href="/2020/02/01/CPP-%E9%A2%84%E5%A4%84%E7%90%86/" class="article-nav-link">
+      <a href="/2020/02/18/leetcode-88.%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%EF%BC%88%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%89/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">CPP-预处理</div>
+        <div class="article-nav-title">leetcode-88.合并两个有序数组（双指针）</div>
       </a>
     
   </nav>

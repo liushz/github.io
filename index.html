@@ -66,6 +66,300 @@
 
     
     
+    <article id="post-PAT- 1019 数字黑洞 （字符串处理+细节）" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/02/29/PAT-%201019%20%E6%95%B0%E5%AD%97%E9%BB%91%E6%B4%9E%20%EF%BC%88%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86+%E7%BB%86%E8%8A%82%EF%BC%89/"
+    >PAT- 1019 数字黑洞 （字符串处理+细节）</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/02/29/PAT-%201019%20%E6%95%B0%E5%AD%97%E9%BB%91%E6%B4%9E%20%EF%BC%88%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86+%E7%BB%86%E8%8A%82%EF%BC%89/" class="article-date">
+  <time datetime="2020-02-29T04:14:08.269Z" itemprop="datePublished">2020-02-29</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="PAT-1019-数字黑洞-（字符串处理-细节）"><a href="#PAT-1019-数字黑洞-（字符串处理-细节）" class="headerlink" title="PAT- 1019 数字黑洞 （字符串处理+细节）"></a>PAT- <strong>1019</strong> <strong>数字黑洞</strong> （字符串处理+细节）</h1><p>给定任一个各位数字不完全相同的 4 位正整数，如果我们先把 4 个数字按非递增排序，再按非递减排序，然后用第 1 个数字减第 2 个数字，将得到一个新的数字。一直重复这样做，我们很快会停在有“数字黑洞”之称的 <code>6174</code>，这个神奇的数字也叫 Kaprekar 常数。</p>
+<p>例如，我们从<code>6767</code>开始，将得到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">7766 - 6677 &#x3D; 1089</span><br><span class="line">9810 - 0189 &#x3D; 9621</span><br><span class="line">9621 - 1269 &#x3D; 8352</span><br><span class="line">8532 - 2358 &#x3D; 6174</span><br><span class="line">7641 - 1467 &#x3D; 6174</span><br><span class="line">... ...</span><br></pre></td></tr></table></figure>
+
+<p>现给定任意 4 位正整数，请编写程序演示到达黑洞的过程。</p>
+<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入给出一个 (0,104) 区间内的正整数 <em>N</em>。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>如果 <em>N</em> 的 4 位数字全相等，则在一行内输出 <code>N - N = 0000</code>；否则将计算的每一步在一行内输出，直到 <code>6174</code> 作为差出现，输出格式见样例。注意每个数字按 <code>4</code> 位数格式输出。</p>
+<h3 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例 1："></a>输入样例 1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6767</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例 1："></a>输出样例 1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">7766 - 6677 &#x3D; 1089</span><br><span class="line">9810 - 0189 &#x3D; 9621</span><br><span class="line">9621 - 1269 &#x3D; 8352</span><br><span class="line">8532 - 2358 &#x3D; 6174</span><br></pre></td></tr></table></figure>
+
+<h3 id="输入样例-2："><a href="#输入样例-2：" class="headerlink" title="输入样例 2："></a>输入样例 2：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2222</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出样例-2："><a href="#输出样例-2：" class="headerlink" title="输出样例 2："></a>输出样例 2：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2222 - 2222 &#x3D; 0000</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><p>接收int→转化string→进入循环（sort求递增up序列，reverse求down序列 →求差→判断是否为“0000”or“6174“</p>
+<p>注意：</p>
+<ol>
+<li>输入为（0 ~ 10000）不一定为四位数，如果不为四位数需转化成四位数（前面+0）</li>
+<li>如果输入为6174 也要计算一遍，因为判断为差为6174才行</li>
+<li>注意输出格式，- 和 = 左右有空格</li>
+</ol>
+<h2 id="二、代码"><a href="#二、代码" class="headerlink" title="二、代码"></a>二、代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt; //sort</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="built_in">string</span> up,down,diff = to_string(n); </span><br><span class="line">     <span class="keyword">while</span>(diff.size()&lt;<span class="number">4</span>) <span class="comment">//转化为四位数</span></span><br><span class="line">        &#123;</span><br><span class="line">            diff = <span class="string">"0"</span> + diff;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        sort(diff.begin(),diff.end()); <span class="comment">//string也有begin 和 end</span></span><br><span class="line">        up = diff;</span><br><span class="line">        reverse(diff.begin(),diff.end()); <span class="comment">//?</span></span><br><span class="line">        down = diff;</span><br><span class="line">        diff = to_string(stoi(down,<span class="number">0</span>,<span class="number">10</span>) - stoi(up,<span class="number">0</span>,<span class="number">10</span>)); <span class="comment">//stoi（string,pos,num)</span></span><br><span class="line">        <span class="keyword">while</span>(diff.size()&lt;<span class="number">4</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            diff = <span class="string">"0"</span> + diff;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;down&lt;&lt;<span class="string">" - "</span>&lt;&lt;up&lt;&lt;<span class="string">" = "</span>&lt;&lt;diff&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">if</span>(diff == <span class="string">"0000"</span>||diff == <span class="string">"6174"</span>)</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/29/PAT-%201019%20%E6%95%B0%E5%AD%97%E9%BB%91%E6%B4%9E%20%EF%BC%88%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86+%E7%BB%86%E8%8A%82%EF%BC%89/" data-id="ck773d7qf0000zwtibm9l8708"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-算法笔记-第k大" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/02/27/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E7%AC%ACk%E5%A4%A7/"
+    >算法笔记-第k大</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/02/27/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E7%AC%ACk%E5%A4%A7/" class="article-date">
+  <time datetime="2020-02-27T04:58:34.665Z" itemprop="datePublished">2020-02-27</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="算法笔记-第k大"><a href="#算法笔记-第k大" class="headerlink" title="算法笔记-第k大"></a>算法笔记-第k大</h1><h2 id="一、切分实现"><a href="#一、切分实现" class="headerlink" title="一、切分实现"></a>一、切分实现</h2><p>用快排的切分函数，将数组划分为两部分，如果k == h - m+1;返回该值，否则相应的去前半部分 or 后半部分找</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">int cut (vector&lt;int&gt;&amp;a,int l,int h)</span><br><span class="line">&#123;</span><br><span class="line">  int cutPos &#x3D; srand((int)time(0)); &#x2F;&#x2F;随机位置</span><br><span class="line">  int temp &#x3D; a[curPos];</span><br><span class="line">  int i &#x3D; l,j &#x3D; h;</span><br><span class="line">  while(i &lt; j)</span><br><span class="line">  &#123;</span><br><span class="line">    while(i &lt; j&amp;&amp;a[j] &gt;&#x3D; temp) j--;</span><br><span class="line">    while(i &lt; j&amp;&amp;a[i] &lt;&#x3D; temp) i++;</span><br><span class="line">    swap(a[i],a[j]);</span><br><span class="line">  &#125;</span><br><span class="line">  a[i] &#x3D; temp;</span><br><span class="line">  return i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">kthLargest</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;a,<span class="keyword">int</span> k,<span class="keyword">int</span> l,<span class="keyword">int</span> h)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(h == l)</span><br><span class="line">   <span class="keyword">return</span> a[l];</span><br><span class="line">   <span class="keyword">int</span> m = cut(a,l,h);</span><br><span class="line">   <span class="keyword">if</span>(m == h - k +<span class="number">1</span>) <span class="keyword">return</span> a[m];</span><br><span class="line">   <span class="keyword">if</span>(m &gt; h-k+<span class="number">1</span>) kthLargest(a,k-h+m<span class="number">-1</span>,l,m - <span class="number">1</span>);</span><br><span class="line">   <span class="keyword">else</span></span><br><span class="line">   kthLargest(a,k,m+<span class="number">1</span>,h);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/27/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E7%AC%ACk%E5%A4%A7/" data-id="ck773d7s80003zwti5elx5moj"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-PAT- 1040 有几个PAT （打表法）" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/02/25/PAT-%201040%20%E6%9C%89%E5%87%A0%E4%B8%AAPAT%20%EF%BC%88%E6%89%93%E8%A1%A8%E6%B3%95%EF%BC%89/"
+    >PAT- 1040 有几个PAT （打表法）</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/02/25/PAT-%201040%20%E6%9C%89%E5%87%A0%E4%B8%AAPAT%20%EF%BC%88%E6%89%93%E8%A1%A8%E6%B3%95%EF%BC%89/" class="article-date">
+  <time datetime="2020-02-25T04:56:25.158Z" itemprop="datePublished">2020-02-25</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="PAT-1040-有几个PAT-（打表法）"><a href="#PAT-1040-有几个PAT-（打表法）" class="headerlink" title="PAT- 1040 有几个PAT （打表法）"></a>PAT- <strong>1040</strong> <strong>有几个PAT</strong> （打表法）</h1><p><em>字符串 <code>APPAPT</code> 中包含了两个单词 <code>PAT</code>，其中第一个 <code>PAT</code> 是第 2 位(<code>P</code>)，第 4 位(<code>A</code>)，第 6 位(<code>T</code>)；第二个 <code>PAT</code> 是第 3 位(<code>P</code>)，第 4 位(<code>A</code>)，第 6 位(<code>T</code>)。</em></p>
+<p><em>现给定字符串，问一共可以形成多少个 <code>PAT</code>？</em></p>
+<h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a><em>输入格式：</em></h3><p><em>输入只有一行，包含一个字符串，长度不超过105，只包含 <code>P</code>、<code>A</code>、<code>T</code> 三种字母。</em></p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a><em>输出格式：</em></h3><p><em>在一行中输出给定字符串中包含多少个 <code>PAT</code>。由于结果可能比较大，只输出对 1000000007 取余数的结果。</em></p>
+<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">APPAPT</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><p>注意到每个PAT可由一个A和其左P右T组成，某处 A所能代表的PAT个数为： A左方P个数 * A 右方T个数，用两个表存储 i 出的左P数和右T数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;vector&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    string s;</span><br><span class="line">    getline(cin,s);</span><br><span class="line">    vector&lt;int&gt;p(s.size()),t(s.size());</span><br><span class="line">    int count &#x3D; 0;</span><br><span class="line">    int sum &#x3D; 0;</span><br><span class="line">    for(int i&#x3D;0;i&lt;s.size();i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(s[i] &#x3D;&#x3D; &#39;P&#39;)</span><br><span class="line">        p[i] &#x3D; ++count;</span><br><span class="line">        else</span><br><span class="line">        p[i] &#x3D; count;</span><br><span class="line">    &#125;</span><br><span class="line">    count &#x3D; 0;</span><br><span class="line">     for(int i&#x3D;s.size()-1;i&gt;&#x3D;0;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        if(s[i] &#x3D;&#x3D; &#39;T&#39;)</span><br><span class="line">        t[i] &#x3D; ++count;</span><br><span class="line">        else</span><br><span class="line">        t[i] &#x3D; count;</span><br><span class="line">        </span><br><span class="line">        if(s[i] &#x3D;&#x3D; &#39;A&#39;)</span><br><span class="line">        sum &#x3D; (sum + p[i]*t[i])%1000000007;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/25/PAT-%201040%20%E6%9C%89%E5%87%A0%E4%B8%AAPAT%20%EF%BC%88%E6%89%93%E8%A1%A8%E6%B3%95%EF%BC%89/" data-id="ck773d7rb0002zwtieer9edmn"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-leetcode-88.合并两个有序数组（双指针）" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/02/18/leetcode-88.%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%EF%BC%88%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%89/"
+    >leetcode-88.合并两个有序数组（双指针）</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/02/18/leetcode-88.%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%EF%BC%88%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%89/" class="article-date">
+  <time datetime="2020-02-18T03:38:59.637Z" itemprop="datePublished">2020-02-18</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="leetcode-88-合并两个有序数组（双指针）"><a href="#leetcode-88-合并两个有序数组（双指针）" class="headerlink" title="leetcode-88.合并两个有序数组（双指针）"></a>leetcode-88.合并两个有序数组（双指针）</h1><p><em>给定两个有序整数数组 nums1 和 nums2，将 nums2 合并到 nums1 中，使得 num1 成为一个有序数组。</em></p>
+<p><em>说明:</em></p>
+<p><em>初始化 nums1 和 nums2 的元素数量分别为 m 和 n。</em><br><em>你可以假设 nums1 有足够的空间（空间大小大于或等于 m + n）来保存 nums2 中的元素。</em><br><em>示例:</em></p>
+<p><em>输入:</em><br><em>nums1 = [1,2,3,0,0,0], m = 3</em><br><em>nums2 = [2,5,6],       n = 3</em></p>
+<p><em>输出: [1,2,2,3,5,6]</em></p>
+<h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><p>两种：</p>
+<ol>
+<li><p>先将nums2移到nums1后n位，再快排sort</p>
+</li>
+<li><p>双指针，本题根本目的是从后向前将nums2的n个按顺序插入到nums1中</p>
+<p>注意n or m为0的情况</p>
+</li>
+</ol>
+<h2 id="二、代码"><a href="#二、代码" class="headerlink" title="二、代码"></a>二、代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="keyword">int</span> m, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> last = n+m<span class="number">-1</span>;</span><br><span class="line">        n--;</span><br><span class="line">        m--;  </span><br><span class="line">        <span class="keyword">while</span>(n&gt;=<span class="number">0</span>) <span class="comment">//n插完就完事</span></span><br><span class="line">        &#123;</span><br><span class="line">          <span class="keyword">if</span>(m&lt;<span class="number">0</span> || nums2[n]&gt;=nums1[m])  <span class="comment">//注意如果m插完后0，此处m = -1，不能用!m;优先用n处</span></span><br><span class="line">              nums1[last--] = nums2[n--];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                nums1[last--] = nums1[m--];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="三、复杂度"><a href="#三、复杂度" class="headerlink" title="三、复杂度"></a>三、复杂度</h1><p>O（m+n)  例如完全颠倒：nums1：456000  nums2:123</p>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/18/leetcode-88.%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%EF%BC%88%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%89/" data-id="ck773d7r70001zwtia06n4sly"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-algor-排序算法" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -103,7 +397,7 @@
       
       <h1 id="排序算法总结"><a href="#排序算法总结" class="headerlink" title="排序算法总结"></a>排序算法总结</h1><h2 id="一、选择排序"><a href="#一、选择排序" class="headerlink" title="一、选择排序"></a>一、选择排序</h2><ol>
 <li><p>简单选择：按顺序每次找出当前最大/最小元素</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;简单选择实现从小到大排序</span><br><span class="line">vector&lt;type&gt;a;</span><br><span class="line">int n &#x3D;a.size();</span><br><span class="line">bool cmp(vector&lt;type&gt;a,vector&lt;type&gt;b)</span><br><span class="line">&#123;</span><br><span class="line">  return a.value&lt;b.value;</span><br><span class="line">&#125;</span><br><span class="line">for(int i&#x3D;0;i&lt;n-1;i++)</span><br><span class="line">&#123;</span><br><span class="line">   int temp &#x3D; i;</span><br><span class="line">   for(int j&#x3D;i+1;j&lt;n;j++)</span><br><span class="line">   &#123;</span><br><span class="line">     if(cmp(a[temp],a[j]))</span><br><span class="line">     temp &#x3D; j;</span><br><span class="line">   &#125;</span><br><span class="line">   swap(a[temp],a[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;简单选择实现从小到大排序</span><br><span class="line">vector&lt;type&gt;a;</span><br><span class="line">int n &#x3D;a.size();</span><br><span class="line">bool cmp(vector&lt;type&gt;a,vector&lt;type&gt;b)</span><br><span class="line">&#123;</span><br><span class="line">  return a.value&lt;b.value;</span><br><span class="line">&#125;</span><br><span class="line">for(int i&#x3D;0;i&lt;n-1;i++)</span><br><span class="line">&#123;</span><br><span class="line">   int temp &#x3D; i;</span><br><span class="line">   for(int j&#x3D;i+1;j&lt;n;j++)</span><br><span class="line">   &#123;</span><br><span class="line">     if(cmp(a[j],a[temp]))</span><br><span class="line">     temp &#x3D; j;</span><br><span class="line">   &#125;</span><br><span class="line">   swap(a[temp],a[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>需要 n *(n - 1)/2 次比较，和 n次交换，不稳定 ：2 2 1 → 1 2 2</p>
 <ul>
@@ -114,7 +408,19 @@
 </ul>
 </li>
 </ol>
-<h2 id="二、插入排序"><a href="#二、插入排序" class="headerlink" title="二、插入排序"></a>二、插入排序</h2>
+<h2 id="二、插入排序"><a href="#二、插入排序" class="headerlink" title="二、插入排序"></a>二、插入排序</h2><h2 id="三、归并排序"><a href="#三、归并排序" class="headerlink" title="三、归并排序"></a>三、归并排序</h2><p>将数组划分为[n/2]→[n/4]→…[2]个小数组，并将每个小数组进行合并（merge）排序，直至整个数组都有序的过程</p>
+<p>递归代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; a, <span class="keyword">int</span> l1, <span class="keyword">int</span> h1, <span class="keyword">int</span> l2, <span class="keyword">int</span> h2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;temp;</span><br><span class="line">    <span class="keyword">int</span> i = l1, j = l2;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= h1 &amp;&amp; j &lt;= h2)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] &lt;= a[j])</span><br><span class="line">            temp.push_back(a[i++]);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            temp.push_back(a[j++]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;=h1)temp.push_back(a[i++]);</span><br><span class="line">    <span class="keyword">while</span>(j&lt;=h2)temp.push_back(a[j++]);</span><br><span class="line">    <span class="keyword">for</span> (i = l1; i &lt;= h2; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[i] = temp[i - l1];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; a,<span class="keyword">int</span> l,<span class="keyword">int</span> h)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &lt; h)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> mid = l + (h - l) / <span class="number">2</span>;</span><br><span class="line">        mergeSort(a, l, mid);</span><br><span class="line">        mergeSort(a, mid + <span class="number">1</span>, h);</span><br><span class="line">        merge(a, l, mid, mid + <span class="number">1</span>, h);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>非递归代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = a.size();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> step = <span class="number">1</span>; step &lt; len; step *= <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i+=step*<span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (i + <span class="number">2</span> * step &gt; len)</span><br><span class="line">                sort(a.begin() + i, a.end());</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                sort(a.begin() + i, a.begin()+i+<span class="number">2</span>*step);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="四、快排"><a href="#四、快排" class="headerlink" title="四、快排"></a>四、快排</h2><p>由大到小切分，每次归位一个元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;ctime&gt; &#x2F;&#x2F;srand((int)(time(NULL))); 不需要cstdlib</span><br><span class="line"></span><br><span class="line">#define random(a,b) (a+rand()%(b-a+1)) &#x2F;&#x2F;注意 %n生成 0~n-1</span><br><span class="line">using namespace std;</span><br><span class="line">&#x2F;***********************************************&#x2F;</span><br><span class="line">int cut(vector&lt;int&gt;&amp;a,int l,int h)</span><br><span class="line">&#123;</span><br><span class="line">    srand((int)(time(NULL)));</span><br><span class="line">    int temp &#x3D; a[random(l, h)];</span><br><span class="line">    int i &#x3D; l, j &#x3D; h;</span><br><span class="line">    while (i &lt; j)</span><br><span class="line">    &#123;</span><br><span class="line">        while (i &lt; j &amp;&amp; a[j] &gt;&#x3D; temp) j--;</span><br><span class="line">        while (i &lt; j &amp;&amp; a[i] &lt;&#x3D; temp) i++;</span><br><span class="line">        swap(a[i], a[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    a[i] &#x3D; temp;</span><br><span class="line">    return i;</span><br><span class="line">&#125;</span><br><span class="line">void QS(vector&lt;int&gt;&amp; a,int l,int h)</span><br><span class="line">&#123;</span><br><span class="line">    if (l &lt; h) &#x2F;&#x2F;x</span><br><span class="line">    &#123;</span><br><span class="line">        int cutPos &#x3D; cut(a, l, h);</span><br><span class="line">        QS(a, l, cutPos - 1);</span><br><span class="line">        QS(a, cutPos + 1, h);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void quickSort(vector&lt;int&gt;&amp; a)</span><br><span class="line">&#123;</span><br><span class="line">    QS(a, 0, a.size() - 1);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    vector&lt;int&gt;a;</span><br><span class="line">    srand((int)(time(0)));</span><br><span class="line">    for (int i &#x3D; 0; i &lt; 100; i++) &#x2F;&#x2F;随机生成100个 0~100</span><br><span class="line">    &#123;</span><br><span class="line">        a.push_back(random(0, 100));</span><br><span class="line">    &#125;</span><br><span class="line">    quickSort(a);</span><br><span class="line">    for (auto c : a)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; c&lt;&lt;&quot; &quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
       <!-- 打赏 -->
       
@@ -243,18 +549,22 @@
       
 
       
-      <h1 id="算法笔记-二分法、双指针"><a href="#算法笔记-二分法、双指针" class="headerlink" title="算法笔记-二分法、双指针"></a>算法笔记-二分法、双指针</h1><h2 id="一、二分法"><a href="#一、二分法" class="headerlink" title="一、二分法"></a>一、二分法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">while(l &lt; h)</span><br><span class="line">&#123;</span><br><span class="line">  mid &#x3D; l + （h - l)&#x2F;2;</span><br><span class="line">  if(a[mid] &#x3D;&#x3D; key)</span><br><span class="line">  return mid;</span><br><span class="line">  if(a[mid]&gt;key)</span><br><span class="line">   h &#x3D; mid -1;</span><br><span class="line">   else</span><br><span class="line">   l &#x3D; mid + 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <h1 id="算法笔记-二分法、双指针"><a href="#算法笔记-二分法、双指针" class="headerlink" title="算法笔记-二分法、双指针"></a>算法笔记-二分法、双指针</h1><h2 id="一、二分法"><a href="#一、二分法" class="headerlink" title="一、二分法"></a>一、二分法</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(l &lt; h)</span><br><span class="line">&#123;</span><br><span class="line">  mid = l + （h - l)/<span class="number">2</span>;</span><br><span class="line">  <span class="keyword">if</span>(a[mid] == key)</span><br><span class="line">  <span class="keyword">return</span> mid;</span><br><span class="line">  <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">   h = mid <span class="number">-1</span>;</span><br><span class="line">   <span class="keyword">else</span></span><br><span class="line">   l = mid + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h2><ol>
-<li><p>木棍问题</p>
+<li><p>求根号2</p>
+<p>①二分法逼近</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">double</span> l = <span class="number">0</span>, h = n;</span><br><span class="line">    <span class="keyword">double</span> ans;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">abs</span>(ans * ans - n )&gt; <span class="number">1e-5</span>) <span class="comment">//精度10^-5</span></span><br><span class="line">    &#123;</span><br><span class="line">        ans = l + (h - l) / <span class="number">2</span>;<span class="comment">//注意：这里写一个mid式子就好</span></span><br><span class="line">        <span class="keyword">if</span> (ans * ans &gt; n)</span><br><span class="line">        &#123;</span><br><span class="line">            h = ans;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            l = ans;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>②牛顿迭代法</p>
 </li>
 <li><p>半圆h问题</p>
 </li>
-<li><p>快速幂问题：求a^b%m  （注意：可以不用对整体结果取余m，a自乘的过程中随时可以）（abm&gt;0)</p>
+<li><p>快速幂问题：求a^b%m  （注意：可以不用对整体结果取余m，a自乘的过程中随时可以）（a、b、m&gt;0)</p>
 <ul>
 <li><p>递归法：</p>
 <p>将b拆掉：偶数拆b/2，b/2。奇数拆b-1 + 1，b = 0时返回 1.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求 a*b%m 递归写法</span></span><br><span class="line">   <span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL; <span class="comment">//注意幂可能很大需要LL</span></span><br><span class="line"><span class="function">LL <span class="title">mi</span><span class="params">(LL a,LL b,LL m)</span></span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(b == <span class="number">0</span>)</span><br><span class="line">       <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">       <span class="keyword">else</span> <span class="keyword">if</span>(b%<span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">       &#123;</span><br><span class="line">         LL temp = mi(a,b/<span class="number">2</span>,m);</span><br><span class="line">         <span class="keyword">return</span> temp*temp%m;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">else</span></span><br><span class="line">       <span class="keyword">return</span> a*mi(a,b<span class="number">-1</span>,m)%m;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求 a*b%m 递归写法</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL; <span class="comment">//注意幂可能很大需要LL</span></span><br><span class="line"><span class="function">LL <span class="title">mi</span><span class="params">(LL a,LL b,LL m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(b == <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(b%<span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">      LL temp = mi(a,b/<span class="number">2</span>,m);</span><br><span class="line">      <span class="keyword">return</span> temp*temp%m;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    <span class="keyword">return</span> a*mi(a,b<span class="number">-1</span>,m)%m;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -262,18 +572,11 @@
 </ul>
 </li>
 </ol>
-<ul>
-<li><p>迭代法：</p>
-<p>将b拆为二进制，取b&amp;1，为真末位为1，否则为0</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; a^b%m 移位写法</span><br><span class="line">LL mi(LL a,LL b,LL m)</span><br><span class="line">&#123;</span><br><span class="line">  LL ans &#x3D; 1;</span><br><span class="line">  while(b)  &#x2F;&#x2F;</span><br><span class="line">  &#123;</span><br><span class="line">    if(b&amp;1) </span><br><span class="line">    &#123;</span><br><span class="line">      ans &#x3D; ans * a%m;</span><br><span class="line">    &#125;</span><br><span class="line">    a*&#x3D;a%m;  &#x2F;&#x2F;注意这里也需要取余m</span><br><span class="line">    b&gt;&gt;1;  &#x2F;&#x2F;b右移一位</span><br><span class="line">  &#125;</span><br><span class="line">  return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>+ 迭代法：
 
+   将b拆为二进制，取b&amp;1，为真末位为1，否则为0
 
-
-
-
-</li>
-</ul>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; a^b%m 移位写法</span><br><span class="line">LL mi(LL a,LL b,LL m)</span><br><span class="line">&#123;</span><br><span class="line">  LL ans &#x3D; 1;</span><br><span class="line">  while(b)  &#x2F;&#x2F;</span><br><span class="line">  &#123;</span><br><span class="line">    if(b&amp;1) </span><br><span class="line">    &#123;</span><br><span class="line">      ans &#x3D; ans * a%m;</span><br><span class="line">    &#125;</span><br><span class="line">    a*&#x3D;a%m;  &#x2F;&#x2F;注意这里也需要取余m</span><br><span class="line">    b&gt;&gt;1;  &#x2F;&#x2F;b右移一位</span><br><span class="line">  &#125;</span><br><span class="line">  return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre>
       
       <!-- 打赏 -->
       
@@ -548,271 +851,6 @@
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2020/02/10/PAT-A-1025%20-PAT%20Ranking%20%EF%BC%88%E6%8E%92%E5%BA%8F%EF%BC%89/" data-id="ck6hoxjvz0008s8tif74n0r9y"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-PAT-B- 1022 D进制的A+B (进制转换)" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/02/09/PAT-B-%201022%20D%E8%BF%9B%E5%88%B6%E7%9A%84A+B%20(%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2)/"
-    >PAT-B- 1022 D进制的A+B (进制转换)</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/02/09/PAT-B-%201022%20D%E8%BF%9B%E5%88%B6%E7%9A%84A+B%20(%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2)/" class="article-date">
-  <time datetime="2020-02-09T03:20:20.339Z" itemprop="datePublished">2020-02-09</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="PAT-B-1022-D进制的A-B-进制转换"><a href="#PAT-B-1022-D进制的A-B-进制转换" class="headerlink" title="PAT-B- 1022 D进制的A+B (进制转换)"></a>PAT-B- 1022 D进制的A+B (进制转换)</h1><p>基础进制转换题，在此记下模板：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="function"><span class="built_in">string</span> <span class="title">hexConvert</span><span class="params">(<span class="built_in">string</span> str,<span class="keyword">int</span> hex)</span>  <span class="comment">//str:string need to be converted</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">  <span class="built_in">string</span> ans=<span class="string">""</span>;  <span class="comment">//answer string</span></span><br><span class="line">  <span class="keyword">int</span> num = stoi(str,<span class="number">0</span>,<span class="number">10</span>);  <span class="comment">//convert string to int</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">while</span>(num)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">int</span> temp = num % hex;</span><br><span class="line">    num /= hex;</span><br><span class="line">    ans = to_string(temp)+ans;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">if</span>(ans == <span class="string">""</span>) <span class="keyword">return</span> <span class="string">"0"</span>;</span><br><span class="line">  <span class="keyword">return</span> ans;</span><br><span class="line">  </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/09/PAT-B-%201022%20D%E8%BF%9B%E5%88%B6%E7%9A%84A+B%20(%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2)/" data-id="ck6hoxjvu0003s8ti8vgfds8h"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-leetcode-1-两数之和" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/02/05/leetcode-1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/"
-    >leetcode-1-两数之和</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/02/05/leetcode-1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" class="article-date">
-  <time datetime="2020-02-05T05:08:28.420Z" itemprop="datePublished">2020-02-05</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="leetcode-1-两数之和"><a href="#leetcode-1-两数之和" class="headerlink" title="leetcode-1-两数之和"></a>leetcode-1-两数之和</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">     <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; record;</span><br><span class="line">     <span class="keyword">int</span> len = nums.size();</span><br><span class="line">        </span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; len;i++)</span><br><span class="line">     &#123;</span><br><span class="line">         <span class="keyword">int</span> difference = target - nums[i];</span><br><span class="line">         <span class="keyword">if</span>(record.find(difference)!=record.end())</span><br><span class="line">             <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&#123;i,record[difference]&#125;;</span><br><span class="line">         record[nums[i]] = i;</span><br><span class="line">     &#125;<span class="comment">//end for</span></span><br><span class="line">       <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&#123;&#125;; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/05/leetcode-1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" data-id="ck6hoxjvv0004s8ti1m4s1csl"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-CPP-STL-关联容器" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/02/05/CPP-STL-%E5%85%B3%E8%81%94%E5%AE%B9%E5%99%A8/"
-    >CPP-STL-关联容器</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/02/05/CPP-STL-%E5%85%B3%E8%81%94%E5%AE%B9%E5%99%A8/" class="article-date">
-  <time datetime="2020-02-05T04:50:32.019Z" itemprop="datePublished">2020-02-05</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="关联容器"><a href="#关联容器" class="headerlink" title="关联容器"></a>关联容器</h1><p>我目前见过的</p>
-<ul>
-<li>set<element_type><ul>
-<li>insert();</li>
-<li>count(); //0 or 1</li>
-</ul>
-</li>
-<li>unordered_map&lt;key_type,variable_type&gt;<ul>
-<li>find(key)!=uMap.end();</li>
-</ul>
-</li>
-<li>map</li>
-</ul>
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/05/CPP-STL-%E5%85%B3%E8%81%94%E5%AE%B9%E5%99%A8/" data-id="ck6hoxjvr0001s8tifqa6drxa"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-CPP-STL-vector" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/02/05/CPP-STL-vector/"
-    >CPP-STL-vector</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/02/05/CPP-STL-vector/" class="article-date">
-  <time datetime="2020-02-05T03:53:48.437Z" itemprop="datePublished">2020-02-05</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h1><p>常用：</p>
-<ul>
-<li>push_back()</li>
-<li>insert()</li>
-<li>size(),empty()</li>
-</ul>
-<p>借助于<algorithm> //vector don’t have member find</p>
-<ul>
-<li><p>find(a.begin(),a.end(),x) //form the begin to the end .find the pos iterator of x </p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it = find(a.begin(),a.end(),x)  <span class="comment">//algorithm</span></span><br><span class="line"><span class="keyword">return</span> *it  <span class="comment">// return it-a.begin()  is type int</span></span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/05/CPP-STL-vector/" data-id="ck6hoxjvs0002s8ti7xn88g3d"
         class="article-share-link">分享</a>
       
     </footer>
