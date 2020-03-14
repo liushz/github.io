@@ -66,6 +66,268 @@
 
     
     
+    <article id="post-算法笔记-二分法" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E4%BA%8C%E5%88%86%E6%B3%95/"
+    >算法笔记-二分法</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E4%BA%8C%E5%88%86%E6%B3%95/" class="article-date">
+  <time datetime="2020-02-11T12:20:24.784Z" itemprop="datePublished">2020-02-11</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="算法笔记-二分法、双指针"><a href="#算法笔记-二分法、双指针" class="headerlink" title="算法笔记-二分法、双指针"></a>算法笔记-二分法、双指针</h1><h2 id="一、二分法"><a href="#一、二分法" class="headerlink" title="一、二分法"></a>一、二分法</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(l &lt; h)</span><br><span class="line">&#123;</span><br><span class="line">  mid = l + （h - l)/<span class="number">2</span>;</span><br><span class="line">  <span class="keyword">if</span>(a[mid] == key)</span><br><span class="line">  <span class="keyword">return</span> mid;</span><br><span class="line">  <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">   h = mid <span class="number">-1</span>;</span><br><span class="line">   <span class="keyword">else</span></span><br><span class="line">   l = mid + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h2><ol>
+<li><p>求根号2</p>
+<p>①二分法逼近</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">double</span> l = <span class="number">0</span>, h = n;</span><br><span class="line">    <span class="keyword">double</span> ans;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">abs</span>(ans * ans - n )&gt; <span class="number">1e-5</span>) <span class="comment">//精度10^-5</span></span><br><span class="line">    &#123;</span><br><span class="line">        ans = l + (h - l) / <span class="number">2</span>;<span class="comment">//注意：这里写一个mid式子就好</span></span><br><span class="line">        <span class="keyword">if</span> (ans * ans &gt; n)</span><br><span class="line">        &#123;</span><br><span class="line">            h = ans;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            l = ans;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>②牛顿迭代法</p>
+</li>
+<li><p>半圆h问题</p>
+</li>
+<li><p>快速幂问题：求a^b%m  （注意：可以不用对整体结果取余m，a自乘的过程中随时可以）（a、b、m&gt;0)</p>
+<ul>
+<li><p>递归法：</p>
+<p>将b拆掉：偶数拆b/2，b/2。奇数拆b-1 + 1，b = 0时返回 1.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求 a*b%m 递归写法</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL; <span class="comment">//注意幂可能很大需要LL</span></span><br><span class="line"><span class="function">LL <span class="title">mi</span><span class="params">(LL a,LL b,LL m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(b == <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(b%<span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">      LL temp = mi(a,b/<span class="number">2</span>,m);</span><br><span class="line">      <span class="keyword">return</span> temp*temp%m;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    <span class="keyword">return</span> a*mi(a,b<span class="number">-1</span>,m)%m;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>+ 迭代法：
+
+   将b拆为二进制，取b&amp;1，为真末位为1，否则为0
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; a^b%m 移位写法</span><br><span class="line">LL mi(LL a,LL b,LL m)</span><br><span class="line">&#123;</span><br><span class="line">  LL ans &#x3D; 1;</span><br><span class="line">  while(b)  &#x2F;&#x2F;</span><br><span class="line">  &#123;</span><br><span class="line">    if(b&amp;1) </span><br><span class="line">    &#123;</span><br><span class="line">      ans &#x3D; ans * a%m;</span><br><span class="line">    &#125;</span><br><span class="line">    a*&#x3D;a%m;  &#x2F;&#x2F;注意这里也需要取余m</span><br><span class="line">    b&gt;&gt;1;  &#x2F;&#x2F;b右移一位</span><br><span class="line">  &#125;</span><br><span class="line">  return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre>
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E4%BA%8C%E5%88%86%E6%B3%95/" data-id="ck6il4cqv0001w8ti3ze4ewxl"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-算法笔记-贪心" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E8%B4%AA%E5%BF%83/"
+    >算法笔记-贪心</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E8%B4%AA%E5%BF%83/" class="article-date">
+  <time datetime="2020-02-11T12:19:44.589Z" itemprop="datePublished">2020-02-11</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="算法笔记-贪心"><a href="#算法笔记-贪心" class="headerlink" title="算法笔记-贪心"></a>算法笔记-贪心</h1><h2 id="一、贪心"><a href="#一、贪心" class="headerlink" title="一、贪心"></a>一、贪心</h2><p>贪心法用不断的当前最优从而达到全局最优，类似于不断专注做小事最后达到圆满人生~啊，人生哲理！</p>
+<p>pat-1022 月饼</p>
+<p>这题在数据类型上很多坑</p>
+<ul>
+<li><p>输出小数点后两位</p>
+</li>
+<li><p>总价它说是正数，需要用double来接</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">yb</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">double</span> volume = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> value = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> total_price = <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(yb a,yb b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.value &gt; b.value;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*3 20</span></span><br><span class="line"><span class="comment">18 15 10</span></span><br><span class="line"><span class="comment">75 72 45</span></span><br><span class="line"><span class="comment">94.50*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;yb&gt;info;</span><br><span class="line">    <span class="keyword">double</span> ans = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> n;</span><br><span class="line">  <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">  <span class="keyword">int</span> need;</span><br><span class="line">  <span class="built_in">cin</span>&gt;&gt;need;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">  &#123;</span><br><span class="line">      yb temp;</span><br><span class="line">      <span class="built_in">cin</span>&gt;&gt;temp.volume;</span><br><span class="line">      info.push_back(temp);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">  &#123;</span><br><span class="line">      <span class="keyword">double</span> x;</span><br><span class="line">      <span class="built_in">cin</span>&gt;&gt;x;</span><br><span class="line">      info[i].total_price = x;</span><br><span class="line">      info[i].value = x/info[i].volume;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  sort(info.begin(),info.end(),cmp);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(need&lt;=<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">if</span>(need&gt;=info[i].volume)</span><br><span class="line">    &#123;</span><br><span class="line">    ans+=info[i].value * info[i].volume;</span><br><span class="line">    need-=info[i].volume;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    &#123;</span><br><span class="line">        ans+=need*info[i].value;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;  </span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%.2f"</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="二、区间贪心"><a href="#二、区间贪心" class="headerlink" title="二、区间贪心"></a>二、区间贪心</h2><ol>
+<li><p>最多不相交区间问题</p>
+<p>描述：取若干个开区间（x ， y），求最多能找到多少个不相交的开区间</p>
+<p>思想：①、去掉能完全包含其他区间的区间，如下图I2完全包含I1，则I2相比I1与其他区间相较的概率增大，同样若I2                                            不与任何区间相交，则I1同样不与任何区间相交。</p>
+<p>​          ②、将区间按左端点排序（需要struct区间类实现），比较右端点</p>
+<p>​           <img src="https://s2.ax1x.com/2020/02/13/1LkKpQ.png" alt=""></p>
+</li>
+</ol>
+<p>​                    ③、用某区间的右端点y和上一个左端点x比较，若包含，下一个。否则结果+1</p>
+<p>​             </p>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E8%B4%AA%E5%BF%83/" data-id="ck6il4cqx0002w8ti96ulgim2"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-算法笔记-递归" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E9%80%92%E5%BD%92/"
+    >算法笔记-递归</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E9%80%92%E5%BD%92/" class="article-date">
+  <time datetime="2020-02-11T09:32:17.932Z" itemprop="datePublished">2020-02-11</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="算法笔记-递归"><a href="#算法笔记-递归" class="headerlink" title="算法笔记-递归"></a>算法笔记-递归</h1><h2 id="一、分治"><a href="#一、分治" class="headerlink" title="一、分治"></a>一、分治</h2><p>分治意为“分而治之”，将直接难以解决的问题分成若干个独立的可以解决的子问题，之后合并得到原问题的解。</p>
+<p>分治可以用递归方法和非递归方法实现，递归方法是常用的方法。</p>
+<h2 id="二、递归"><a href="#二、递归" class="headerlink" title="二、递归"></a>二、递归</h2><p>“想理解递归，你先需要理解递归”</p>
+<p>递归的关键有两个：</p>
+<ul>
+<li>递归边界：什么时候能停止，也是分治的最终结果</li>
+<li>递归式：决定递归方向</li>
+</ul>
+<h2 id="三、经典实例"><a href="#三、经典实例" class="headerlink" title="三、经典实例"></a>三、经典实例</h2><ol>
+<li>递归实现n！</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">factorial</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;  <span class="comment">//already know the factorial of 0 is 1,it's the border of the recursion</span></span><br><span class="line">  <span class="keyword">return</span> n*factorial(n - <span class="number">1</span>);  <span class="comment">//the forlumar of the recursion</span></span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li><p>递归实现全排列</p>
+<p>思想：很经典的思想，假设现在在处理第i个，要放入的是还未放入的元素中的一个，假设目前处理的是第n+1个，说明前n个处理完成，则所有的处理完成。</p>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n,sum;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;ans;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;flag;  <span class="comment">//全局变量</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OS</span><span class="params">(<span class="keyword">int</span> index)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (index == n + <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> c : ans)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; c &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (flag[i] == <span class="literal">false</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ans[index - <span class="number">1</span>] = i;</span><br><span class="line">            flag[i] = <span class="literal">true</span>;</span><br><span class="line">            OS(index + <span class="number">1</span>);     <span class="comment">// i can't be used</span></span><br><span class="line">            flag[i] = <span class="literal">false</span>;  <span class="comment">//now adding the element i to ans[index - 1],when ans[index - 1] added </span></span><br><span class="line">                              <span class="comment">// another element,like i+1,i can be used like 1 2 3 when index = 1                                   //to 2 1 3 ,summary,element not be used this time can be used next time</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    ans.resize(n);</span><br><span class="line">    flag.resize(n + <span class="number">1</span>, <span class="literal">false</span>);</span><br><span class="line">    OS(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="3">
+<li><p>n皇后问题</p>
+<p><img src="https://s2.ax1x.com/2020/02/11/1obNWj.png" alt=""></p>
+<p> 要求每行每列每个对角线都不能有两个或以上棋子，如果完全穷举需要25 * 16 * 9 * 4 * 1次</p>
+<p>改善算法为：因为每行每列都只能有一个格子被占，对于每列来说图a中可得序列24135，b中可得35142</p>
+<p>按这种思路，从n的全排列中剃去在同一对角线的棋子就是答案</p>
+<p>对角线位置棋子有个规律，最明显的是12345都在一个排列，最容易得知的是它们在有一定的顺序</p>
+<p>对于b图：35142 ：3 1冲突，它们符合3_1,5和2冲突，它们符合5_ _ 2,显然，排列按自然递增数学的棋子在一条线上，在上面全排列的基础上容易得到下面的代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OS</span><span class="params">(<span class="keyword">int</span> index)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (index == n + <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;ans.size() - <span class="number">1</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> low = ans[i] - <span class="number">1</span>, hig = ans[i] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (ans[j] == low || ans[j] == hig) <span class="comment">//如果该元素和ans[i]有自然递增/减顺序，剔除</span></span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                low--;</span><br><span class="line">                hig++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        sum++;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (flag[i] == <span class="literal">false</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ans[index - <span class="number">1</span>] = i;</span><br><span class="line">            flag[i] = <span class="literal">true</span>;</span><br><span class="line">            OS(index + <span class="number">1</span>);</span><br><span class="line">            flag[i] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E9%80%92%E5%BD%92/" data-id="ck6hoxjvw0005s8tieo7i8xuy"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-PAT-A-1025 -PAT Ranking （排序）" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -561,240 +823,13 @@
 
 </article>
     
-    <article id="post-CPP-预处理" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/02/01/CPP-%E9%A2%84%E5%A4%84%E7%90%86/"
-    >CPP-预处理</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/02/01/CPP-%E9%A2%84%E5%A4%84%E7%90%86/" class="article-date">
-  <time datetime="2020-02-01T04:14:52.985Z" itemprop="datePublished">2020-02-01</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h1><p>cpp有预处理器，用于程序<strong>编译</strong>前执行预处理程序</p>
-<p>预处理→编译→汇编→连接</p>
-<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><p>处理预处理变量，将程序中的预处理变量替换为相应值</p>
-<ul>
-<li>#define 定义一个预处理变量（<a href="">宏定义</a>） </li>
-<li>头文件保护符： #ifdef #ifdef #endif 判断预处理变量定义与否 #if 判断预处理变量真假</li>
-</ul>
-<p>如：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> area x * x  <span class="comment">//不加";"，因为替换</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> a = area(<span class="number">5</span>+<span class="number">5</span>); <span class="comment">// 预处理后变为： int a = 5+5*5+5; replace directly   </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><em>attentions:</em></p>
-<ol>
-<li>vars add “( )”</li>
-<li>the formula adds “()” according to the priority of the calculation</li>
-</ol>
-<p>预处理变量作用域为全部相关文件</p>
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/01/CPP-%E9%A2%84%E5%A4%84%E7%90%86/" data-id="ck6hoxjvy0007s8tibzsibjxh"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-leetcode-405数字转十六进制" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/01/25/leetcode-405%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/"
-    >leetcode.405数字转十六进制</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/01/25/leetcode-405%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/" class="article-date">
-  <time datetime="2020-01-25T12:45:26.000Z" itemprop="datePublished">2020-01-25</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="数组转十六进制"><a href="#数组转十六进制" class="headerlink" title="数组转十六进制"></a>数组转十六进制</h1><p><em>给定一个整数，编写一个算法将这个数转换为十六进制数。对于负整数，我们通常使用 补码运算 方法。</em></p>
-<p><em>注意:</em></p>
-<p><em>十六进制中所有字母(a-f)都必须是小写。</em><br><em>十六进制字符串中不能包含多余的前导零。如果要转化的数为0，那么以单个字符’0’来表示；对于其他情况，十六进制字符串中的第一个字符将不会是0字符。</em><br><em>给定的数确保在32位有符号整数范围内。</em><br><em>不能使用任何由库提供的将数字直接转换或格式化为十六进制的方法。</em><br><em>示例 1：</em></p>
-<p><em>输入:</em><br><em>26</em></p>
-<p><em>输出:</em><br>*”1a”*<br><em>示例 2：</em></p>
-<p><em>输入:</em><br><em>-1</em></p>
-<p><em>输出:</em><br>*”ffffffff”*</p>
-<h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><ul>
-<li>小写字母表示；0用“0”；</li>
-</ul>
-<p>正数简单，类似二进制，先取余再除。</p>
-<p>复数特殊，大佬题解的答案巧妙：全部转化 unsigned int  最大是2^32 -1 而ffff ffff也是2^32 -1 </p>
-<h2 id="二、代码"><a href="#二、代码" class="headerlink" title="二、代码"></a>二、代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">toHex</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">       </span><br><span class="line">        <span class="keyword">if</span>(num == <span class="number">0</span>) <span class="keyword">return</span> <span class="string">"0"</span>;</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">int</span> Unum = num;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">string</span> ans = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">while</span>(Unum)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> remainder = Unum%<span class="number">16</span>;</span><br><span class="line">            Unum/=<span class="number">16</span>;</span><br><span class="line">            ans = (remainder&gt;<span class="number">9</span>?(<span class="keyword">char</span>)(<span class="string">'a'</span>+remainder - <span class="number">10</span>):(<span class="keyword">char</span>)(<span class="string">'0'</span> + remainder)) + ans;</span><br><span class="line">        &#125;</span><br><span class="line">       <span class="keyword">return</span> ans; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/25/leetcode-405%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6/" data-id="ck5z66etl0001moti4wxdhb1z"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-algor-二叉树遍历" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/01/25/algor-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/"
-    >algor-二叉树遍历</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/01/25/algor-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/" class="article-date">
-  <time datetime="2020-01-25T11:49:07.000Z" itemprop="datePublished">2020-01-25</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="复习二叉树遍历"><a href="#复习二叉树遍历" class="headerlink" title="复习二叉树遍历"></a>复习二叉树遍历</h1><ul>
-<li>前序    根左右</li>
-<li>中序   左根右</li>
-<li>后序   左右根</li>
-<li>层次</li>
-</ul>
-<h2 id="一、前序"><a href="#一、前序" class="headerlink" title="一、前序"></a>一、前序</h2><h2 id="二、中序"><a href="#二、中序" class="headerlink" title="二、中序"></a>二、中序</h2><h2 id="三、后序"><a href="#三、后序" class="headerlink" title="三、后序"></a>三、后序</h2><h2 id="四、层次"><a href="#四、层次" class="headerlink" title="四、层次"></a>四、层次</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//层次遍历</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">HierarchicalTraversal</span> <span class="params">(TreeNode *root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(!root) <span class="keyword">return</span>;</span><br><span class="line">  <span class="built_in">queue</span>&lt;TreeNode&gt; q;</span><br><span class="line">  q.push(root);</span><br><span class="line">  <span class="keyword">while</span>(!q.empty())</span><br><span class="line">  &#123;</span><br><span class="line">    TreeNode *temp = q.front();</span><br><span class="line">    q.pop();</span><br><span class="line">    visit(temp);  <span class="comment">//deal with</span></span><br><span class="line">    <span class="keyword">if</span>(temp-&gt;left)</span><br><span class="line">    q.push(temp-&gt;left);</span><br><span class="line">    <span class="keyword">if</span>(temp-&gt;right)</span><br><span class="line">    q.push(temp-&gt;right);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><ol>
-<li>一次while只是一个结点，<strong>不是一层</strong> ，标识每层需要两个指针</li>
-</ol>
-<h2 id="扩展："><a href="#扩展：" class="headerlink" title="扩展："></a>扩展：</h2><ol>
-<li><p>实现遍历过程中按行输出</p>
-<p>自己实现，用 pre记录当前行剩余结点数，next记录下一行，写的很麻烦，还错了三次</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; levelOrder(TreeNode* root) &#123;</span><br><span class="line">    </span><br><span class="line">      <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans; <span class="comment">//answer</span></span><br><span class="line">      <span class="keyword">if</span>(!root) <span class="keyword">return</span> ans;</span><br><span class="line">        </span><br><span class="line">      <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; thisLayer;</span><br><span class="line">      <span class="built_in">queue</span>&lt;TreeNode*&gt;q; <span class="comment">//queue</span></span><br><span class="line">      q.push(root);</span><br><span class="line">      thisLayer.push_back(root-&gt;val);</span><br><span class="line">      ans.push_back(thisLayer);</span><br><span class="line">      thisLayer.resize(<span class="number">0</span>);</span><br><span class="line">        </span><br><span class="line">      <span class="keyword">int</span> pre = <span class="number">1</span>;  <span class="comment">//当前行剩余结点</span></span><br><span class="line">      <span class="keyword">int</span> next = <span class="number">0</span>;  <span class="comment">//下一行目前结点数</span></span><br><span class="line">      <span class="keyword">while</span>(!q.empty())</span><br><span class="line">      &#123;</span><br><span class="line">          TreeNode *p = q.front();</span><br><span class="line">          q.pop();</span><br><span class="line">          pre--;</span><br><span class="line">         </span><br><span class="line">          <span class="keyword">if</span>(p-&gt;left)</span><br><span class="line">          &#123;</span><br><span class="line">             thisLayer.push_back(p-&gt;left-&gt;val);</span><br><span class="line">              q.push(p-&gt;left);</span><br><span class="line">              next++;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">if</span>(p-&gt;right)</span><br><span class="line">          &#123;</span><br><span class="line">              thisLayer.push_back(p-&gt;right-&gt;val);</span><br><span class="line">              q.push(p-&gt;right);</span><br><span class="line">              next++;</span><br><span class="line">          &#125;</span><br><span class="line">            <span class="keyword">if</span>(pre == <span class="number">0</span>&amp;&amp;next!=<span class="number">0</span>)</span><br><span class="line">          &#123;</span><br><span class="line">             pre = next;</span><br><span class="line">             next = <span class="number">0</span>;</span><br><span class="line">             ans.push_back(thisLayer);</span><br><span class="line">             thisLayer.resize(<span class="number">0</span>);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://s2.ax1x.com/2020/01/29/1QJiCD.png" alt=""></p>
-<p>麻烦又慢错了三次：注意检查两遍+前三准则</p>
-</li>
-</ol>
-<p>改进版：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;&#x2F;&#x2F;一个while遍历一层</span><br><span class="line">public:</span><br><span class="line">    vector&lt;vector&lt;int&gt;&gt; levelOrder(TreeNode* root) &#123;</span><br><span class="line">      vector&lt;vector&lt;int&gt;&gt; ans; &#x2F;&#x2F;answer</span><br><span class="line">      if(!root) return ans;</span><br><span class="line">      queue&lt;TreeNode*&gt;q; &#x2F;&#x2F;queue</span><br><span class="line">      q.push(root);</span><br><span class="line">      </span><br><span class="line">      while(!q.empty())</span><br><span class="line">      &#123;</span><br><span class="line">          int size &#x3D; q.size();</span><br><span class="line">          vector&lt;int&gt; thisLayer;</span><br><span class="line">          for(int i&#x3D;0;i&lt;size;i++)</span><br><span class="line">          &#123;</span><br><span class="line">          TreeNode *p &#x3D; q.front();</span><br><span class="line">          q.pop();</span><br><span class="line">          thisLayer.push_back(p-&gt;val);</span><br><span class="line">              </span><br><span class="line">          if(p-&gt;left) q.push(p-&gt;left);</span><br><span class="line">          if(p-&gt;right) q.push(p-&gt;right);</span><br><span class="line">     &#125;</span><br><span class="line">          ans.push_back(thisLayer);</span><br><span class="line">      &#125;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/25/algor-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/" data-id="ck5z66eqh0000moti6lqg26zl"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
   </nav>
   
 </section>

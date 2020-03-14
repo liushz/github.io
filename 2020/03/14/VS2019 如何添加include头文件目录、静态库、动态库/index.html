@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="-.-" />
+   
+  <meta name="description" content="Always trust,happy things are on my way" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    VS2019 如何添加include头文件目录、静态库、动态库 |  shz&#39;s Blog
+  </title>
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+
+  
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-VS2019 如何添加include头文件目录、静态库、动态库" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  VS2019 如何添加include头文件目录、静态库、动态库
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/03/14/VS2019%20%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0include%E5%A4%B4%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E3%80%81%E9%9D%99%E6%80%81%E5%BA%93%E3%80%81%E5%8A%A8%E6%80%81%E5%BA%93/" class="article-date">
+  <time datetime="2020-03-14T11:00:56.656Z" itemprop="datePublished">2020-03-14</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="VS2019如何添加include头文件目录、静态库、动态库"><a href="#VS2019如何添加include头文件目录、静态库、动态库" class="headerlink" title="VS2019如何添加include头文件目录、静态库、动态库"></a>VS2019如何添加include头文件目录、静态库、动态库</h1><p>在编译《3d游戏编程大师技巧》raider3d项目时，由于DX11（我安装的dx版本）已经不再包含dmusici.h和dmusicf.h，所以需要手动导入dx8.0的SDK</p>
+<h2 id="添加头文件的顺序为："><a href="#添加头文件的顺序为：" class="headerlink" title="添加头文件的顺序为："></a>添加头文件的顺序为：</h2><ol>
+<li><p>下载解压好SDK包（csdn就是clm）</p>
+<p><img src="https://s1.ax1x.com/2020/03/14/8lFt6f.png" alt="dx8.0 SDK"></p>
+<p>里面有各种头文件和静态（lib）库文件</p>
+</li>
+<li><p>右键项目→属性→C/C++→常规→附加包含目录 中添加SDK文件夹 </p>
+</li>
+<li><p>OK 不过还有一堆bug去处理</p>
+<p>发现bug是由上面的操作引起的，不应该加到附加包含目录，在此程序中会影响winnt.h导致很多不容易修复的bug</p>
+<p>解决方法：</p>
+<p>在工程属性→配置属性→VC++目录→可执行文件目录 中添加</p>
+<p><img src="https://s1.ax1x.com/2020/03/14/8lYJaj.png" alt=""></p>
+<p>注意：所添加的目录顺序必须在原目录的最后</p>
+<p><img src="https://s1.ax1x.com/2020/03/14/8lY5LD.png" alt="在此后添加"></p>
+<p>否则会因包含顺序不同导致编译顺序不同，造成bug，比如winnt.h中的未定义问题</p>
+</li>
+</ol>
+<h2 id="添加静态库的顺序为："><a href="#添加静态库的顺序为：" class="headerlink" title="添加静态库的顺序为："></a>添加静态库的顺序为：</h2><ol>
+<li>在库目录中添加lib文件的路径</li>
+</ol>
+<p><img src="https://s1.ax1x.com/2020/03/14/8lYJaj.png" alt=""></p>
+<ol start="2">
+<li><p>在下图位置输入要添加的lib文件名</p>
+<p><img src="https://s1.ax1x.com/2020/03/14/8ltr1P.png" alt=""></p>
+</li>
+</ol>
+<h2 id="添加动态库则比较简单，添加到资源目录即可"><a href="#添加动态库则比较简单，添加到资源目录即可" class="headerlink" title="添加动态库则比较简单，添加到资源目录即可"></a>添加动态库则比较简单，添加到资源目录即可</h2>
+      
+      <!-- 打赏 -->
+      
+        <div id="reward-btn">
+          打赏
+        </div>
+        
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/14/VS2019%20%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0include%E5%A4%B4%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E3%80%81%E9%9D%99%E6%80%81%E5%BA%93%E3%80%81%E5%8A%A8%E6%80%81%E5%BA%93/" data-id="ck7rnj59e000088ti0qivhi7u"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/03/14/%E3%80%8A3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%B8%88%E6%8A%80%E5%B7%A7%E3%80%8B%20-%20%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            《3D游戏编程大师技巧》 - 环境配置
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/03/11/leetcode%20-%201013.%20%E5%B0%86%E6%95%B0%E7%BB%84%E5%88%86%E6%88%90%E5%92%8C%E7%9B%B8%E7%AD%89%E7%9A%84%E4%B8%89%E4%B8%AA%E9%83%A8%E5%88%86/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">leetcode - 1013. 将数组分成和相等的三个部分</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2015-2020
+        John Doe
+      </li>
+      <li>
+        
+          Powered by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <ul class="list-inline">
+  <li>PV:<span id="busuanzi_value_page_pv"></span></li>
+  <li>UV:<span id="busuanzi_value_site_uv"></span></li>
+</ul>
+        
+      </li>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+    <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+    
+    <aside class="sidebar">
+      
+        <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="shz&#39;s Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">目录</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="http://shenyu-vip.lofter.com" target="_blank" rel="noopener">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+      </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+      
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+  
+<script src="/js/tocbot.min.js"></script>
+
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: false
+  }
+</script>
+
+
+<script src="/js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  
+  
+  </div>
+</body>
+
+</html>

@@ -66,6 +66,261 @@
 
     
     
+    <article id="post-《3D游戏编程大师技巧》 - 环境配置" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/03/14/%E3%80%8A3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%B8%88%E6%8A%80%E5%B7%A7%E3%80%8B%20-%20%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"
+    >《3D游戏编程大师技巧》 - 环境配置</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/03/14/%E3%80%8A3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%B8%88%E6%8A%80%E5%B7%A7%E3%80%8B%20-%20%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time datetime="2020-03-14T13:32:36.144Z" itemprop="datePublished">2020-03-14</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="《3D游戏编程大师技巧》-环境配置"><a href="#《3D游戏编程大师技巧》-环境配置" class="headerlink" title="《3D游戏编程大师技巧》 - 环境配置"></a>《3D游戏编程大师技巧》 - 环境配置</h1><p>第一章的小Demo raider3D的配置，游戏文件结果为：</p>
+<p>  主循环cpp + 游戏库cpp和h + DirectX的lib →（编译 + dll）exe</p>
+<p>问题如下：</p>
+<ol>
+<li><p>错误 C2664 “int Open_Error_File(char *,FILE *)”: 无法将参数 1 从“const char [10]”转换为“char *” </p>
+<p>解决方法：项目属性→ C/C++-&gt;语言-&gt;符合模式 →否</p>
+</li>
+</ol>
+<ol start="2">
+<li><p>错误 C1083 无法打开包括文件: “dmusici.h”，“dmusici.h”: No such file or directory  </p>
+<p>解决方法：</p>
+<ul>
+<li>要么安装dx8.0 or 9.0 （我安装了没解决，应该是我已经有高本版的问题）</li>
+<li>要么用dx8.0的SDK，万恶的csdn有，下了后包含.h、.lib、dll，包含方法  </li>
+</ul>
+</li>
+<li><p>This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. </p>
+<p>如图加上_CRT_SECURE_NO_WARNINGS；</p>
+<p><img src="https://s1.ax1x.com/2020/03/14/8ldXqK.png" alt=""></p>
+</li>
+<li><p>不能将 “const char *” 类型的值分配到 “LPCWSTR” 类型的实体</p>
+<p>更改：项目属性→配置属性→高级→字符集 改为“使用多字节字符集”</p>
+<p><img src="https://s1.ax1x.com/2020/03/14/8lwYoF.png" alt=""></p>
+</li>
+</ol>
+<p>运行图：没声音，暂时不知道原因</p>
+<p><img src="https://s1.ax1x.com/2020/03/14/8lwseK.png" alt="">))</p>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/14/%E3%80%8A3D%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%B8%88%E6%8A%80%E5%B7%A7%E3%80%8B%20-%20%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" data-id="ck7rnj59m000188tih08vhw3h"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-VS2019 如何添加include头文件目录、静态库、动态库" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/03/14/VS2019%20%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0include%E5%A4%B4%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E3%80%81%E9%9D%99%E6%80%81%E5%BA%93%E3%80%81%E5%8A%A8%E6%80%81%E5%BA%93/"
+    >VS2019 如何添加include头文件目录、静态库、动态库</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/03/14/VS2019%20%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0include%E5%A4%B4%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E3%80%81%E9%9D%99%E6%80%81%E5%BA%93%E3%80%81%E5%8A%A8%E6%80%81%E5%BA%93/" class="article-date">
+  <time datetime="2020-03-14T11:00:56.656Z" itemprop="datePublished">2020-03-14</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="VS2019如何添加include头文件目录、静态库、动态库"><a href="#VS2019如何添加include头文件目录、静态库、动态库" class="headerlink" title="VS2019如何添加include头文件目录、静态库、动态库"></a>VS2019如何添加include头文件目录、静态库、动态库</h1><p>在编译《3d游戏编程大师技巧》raider3d项目时，由于DX11（我安装的dx版本）已经不再包含dmusici.h和dmusicf.h，所以需要手动导入dx8.0的SDK</p>
+<h2 id="添加头文件的顺序为："><a href="#添加头文件的顺序为：" class="headerlink" title="添加头文件的顺序为："></a>添加头文件的顺序为：</h2><ol>
+<li><p>下载解压好SDK包（csdn就是clm）</p>
+<p><img src="https://s1.ax1x.com/2020/03/14/8lFt6f.png" alt="dx8.0 SDK"></p>
+<p>里面有各种头文件和静态（lib）库文件</p>
+</li>
+<li><p>右键项目→属性→C/C++→常规→附加包含目录 中添加SDK文件夹 </p>
+</li>
+<li><p>OK 不过还有一堆bug去处理</p>
+<p>发现bug是由上面的操作引起的，不应该加到附加包含目录，在此程序中会影响winnt.h导致很多不容易修复的bug</p>
+<p>解决方法：</p>
+<p>在工程属性→配置属性→VC++目录→可执行文件目录 中添加</p>
+<p><img src="https://s1.ax1x.com/2020/03/14/8lYJaj.png" alt=""></p>
+<p>注意：所添加的目录顺序必须在原目录的最后</p>
+<p><img src="https://s1.ax1x.com/2020/03/14/8lY5LD.png" alt="在此后添加"></p>
+<p>否则会因包含顺序不同导致编译顺序不同，造成bug，比如winnt.h中的未定义问题</p>
+</li>
+</ol>
+<h2 id="添加静态库的顺序为："><a href="#添加静态库的顺序为：" class="headerlink" title="添加静态库的顺序为："></a>添加静态库的顺序为：</h2><ol>
+<li>在库目录中添加lib文件的路径</li>
+</ol>
+<p><img src="https://s1.ax1x.com/2020/03/14/8lYJaj.png" alt=""></p>
+<ol start="2">
+<li><p>在下图位置输入要添加的lib文件名</p>
+<p><img src="https://s1.ax1x.com/2020/03/14/8ltr1P.png" alt=""></p>
+</li>
+</ol>
+<h2 id="添加动态库则比较简单，添加到资源目录即可"><a href="#添加动态库则比较简单，添加到资源目录即可" class="headerlink" title="添加动态库则比较简单，添加到资源目录即可"></a>添加动态库则比较简单，添加到资源目录即可</h2>
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/14/VS2019%20%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0include%E5%A4%B4%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E3%80%81%E9%9D%99%E6%80%81%E5%BA%93%E3%80%81%E5%8A%A8%E6%80%81%E5%BA%93/" data-id="ck7rnj59e000088ti0qivhi7u"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-leetcode - 1013. 将数组分成和相等的三个部分" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/03/11/leetcode%20-%201013.%20%E5%B0%86%E6%95%B0%E7%BB%84%E5%88%86%E6%88%90%E5%92%8C%E7%9B%B8%E7%AD%89%E7%9A%84%E4%B8%89%E4%B8%AA%E9%83%A8%E5%88%86/"
+    >leetcode - 1013. 将数组分成和相等的三个部分</a
+  >
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/03/11/leetcode%20-%201013.%20%E5%B0%86%E6%95%B0%E7%BB%84%E5%88%86%E6%88%90%E5%92%8C%E7%9B%B8%E7%AD%89%E7%9A%84%E4%B8%89%E4%B8%AA%E9%83%A8%E5%88%86/" class="article-date">
+  <time datetime="2020-03-11T04:13:32.153Z" itemprop="datePublished">2020-03-11</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="leetcode-1013-将数组分成和相等的三个部分"><a href="#leetcode-1013-将数组分成和相等的三个部分" class="headerlink" title="leetcode - 1013. 将数组分成和相等的三个部分"></a>leetcode - 1013. 将数组分成和相等的三个部分</h1><blockquote>
+<p><em>给你一个整数数组 A，只有可以将其划分为三个和相等的<strong>非空部分</strong>时才返回 true，否则返回 false。</em></p>
+</blockquote>
+<p><em>形式上，如果可以找出索引 i+1 &lt; j 且满足 (A[0] + A[1] + … + A[i] == A[i+1] + A[i+2] + … + A[j-1] == A[j] + A[j-1] + … + A[A.length - 1]) 就可以将数组三等分。</em></p>
+<p>** </p>
+<p><em>示例 1：</em></p>
+<p><em>输出：[0,2,1,-6,6,-7,9,1,2,0,1]</em><br><em>输出：true</em><br><em>解释：0 + 2 + 1 = -6 + 6 - 7 + 9 + 1 = 2 + 0 + 1</em><br><em>示例 2：</em></p>
+<p><em>输入：[0,2,1,-6,6,7,9,-1,2,0,1]</em><br><em>输出：false</em><br><em>示例 3：</em></p>
+<p><em>输入：[3,3,6,5,-2,2,5,1,-9,4]</em><br><em>输出：true</em><br><em>解释：3 + 3 = 6 = 5 - 2 + 2 + 5 + 1 - 9 + 4</em></p>
+<p><em>提示：</em></p>
+<p><em>3 &lt;= A.length &lt;= 50000</em><br><em>-10^4 &lt;= A[i] &lt;= 10^4</em></p>
+<h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><ul>
+<li>其实已知每份的和，不用试探着去找</li>
+<li>注意是非空部分，也就是各部分得相等还要保证至少有一个值</li>
+</ul>
+<p>求出每份的和sum，用前后指针求该和，计算中间和是否等于两边</p>
+<p>注意数组指针：</p>
+<ul>
+<li>越界问题，l &lt; h</li>
+<li>中间值为一个的情况，l == h别忘了</li>
+</ul>
+<h2 id="二、代码"><a href="#二、代码" class="headerlink" title="二、代码"></a>二、代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 56ms ~ 100ms 我的</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canThreePartsEqualSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">auto</span> c:A)</span><br><span class="line">       &#123;</span><br><span class="line">          sum += c; </span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span>(sum % <span class="number">3</span> != <span class="number">0</span>) <span class="comment">//起码能分成3份，0也行</span></span><br><span class="line">           <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      sum /= <span class="number">3</span>;</span><br><span class="line">      <span class="keyword">int</span> len = A.size();</span><br><span class="line">      <span class="keyword">int</span> l = <span class="number">0</span>, h = len - <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">int</span> val1 = A[l++], val2 = A[h--], val3 = <span class="number">0</span>; <span class="comment">//保证前后至少有一个值</span></span><br><span class="line">        </span><br><span class="line">      <span class="keyword">while</span>(l &lt; h &amp;&amp; val1 != sum) <span class="comment">//不越界</span></span><br><span class="line">        val1 += A[l++];</span><br><span class="line">      <span class="keyword">while</span>(l &lt; h &amp;&amp; val2 != sum)</span><br><span class="line">        val2 += A[h--];</span><br><span class="line">     </span><br><span class="line">      <span class="keyword">if</span>(val1 == val2 &amp;&amp; l &lt;= h) <span class="comment">//注意此时l和h的位置，前后和相等，且中间至少得有一个数</span></span><br><span class="line">      &#123;</span><br><span class="line">          <span class="keyword">for</span>(<span class="keyword">int</span> i = l; i &lt;= h; i++)  <span class="comment">//X  ; 打成 ,</span></span><br><span class="line">          &#123;</span><br><span class="line">              val3 += A[i];</span><br><span class="line">          &#125;</span><br><span class="line">           <span class="keyword">if</span>(val3 == val1)</span><br><span class="line">               <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">//得有返回值</span></span><br><span class="line">    &#125;<span class="comment">//func</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//44ms 别人的</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canThreePartsEqualSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = accumulate(A.begin(), A.end(), <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (sum % <span class="number">3</span> != <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">int</span> cursum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">auto</span> i = A.begin();</span><br><span class="line">        <span class="keyword">while</span> (i == A.begin() || (i != A.end() &amp;&amp; cursum != sum / <span class="number">3</span>))</span><br><span class="line">            cursum += *i++;</span><br><span class="line">        <span class="keyword">if</span> (i == A.end())</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">auto</span> first_end = i;</span><br><span class="line">        <span class="keyword">while</span> (i == first_end || (i != A.end() &amp;&amp; cursum != sum / <span class="number">3</span> * <span class="number">2</span>))</span><br><span class="line">            cursum += *i++;</span><br><span class="line">        <span class="keyword">if</span> (i == A.end())</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/11/leetcode%20-%201013.%20%E5%B0%86%E6%95%B0%E7%BB%84%E5%88%86%E6%88%90%E5%92%8C%E7%9B%B8%E7%AD%89%E7%9A%84%E4%B8%89%E4%B8%AA%E9%83%A8%E5%88%86/" data-id="ck7rnj59o000288tibvohdr28"
+        class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-算法笔记 - 公倍数、公因数" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -587,275 +842,13 @@
 
 </article>
     
-    <article id="post-算法笔记-二分法" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E4%BA%8C%E5%88%86%E6%B3%95/"
-    >算法笔记-二分法</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E4%BA%8C%E5%88%86%E6%B3%95/" class="article-date">
-  <time datetime="2020-02-11T12:20:24.784Z" itemprop="datePublished">2020-02-11</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="算法笔记-二分法、双指针"><a href="#算法笔记-二分法、双指针" class="headerlink" title="算法笔记-二分法、双指针"></a>算法笔记-二分法、双指针</h1><h2 id="一、二分法"><a href="#一、二分法" class="headerlink" title="一、二分法"></a>一、二分法</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(l &lt; h)</span><br><span class="line">&#123;</span><br><span class="line">  mid = l + （h - l)/<span class="number">2</span>;</span><br><span class="line">  <span class="keyword">if</span>(a[mid] == key)</span><br><span class="line">  <span class="keyword">return</span> mid;</span><br><span class="line">  <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">   h = mid <span class="number">-1</span>;</span><br><span class="line">   <span class="keyword">else</span></span><br><span class="line">   l = mid + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h2><ol>
-<li><p>求根号2</p>
-<p>①二分法逼近</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">double</span> l = <span class="number">0</span>, h = n;</span><br><span class="line">    <span class="keyword">double</span> ans;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">abs</span>(ans * ans - n )&gt; <span class="number">1e-5</span>) <span class="comment">//精度10^-5</span></span><br><span class="line">    &#123;</span><br><span class="line">        ans = l + (h - l) / <span class="number">2</span>;<span class="comment">//注意：这里写一个mid式子就好</span></span><br><span class="line">        <span class="keyword">if</span> (ans * ans &gt; n)</span><br><span class="line">        &#123;</span><br><span class="line">            h = ans;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            l = ans;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>②牛顿迭代法</p>
-</li>
-<li><p>半圆h问题</p>
-</li>
-<li><p>快速幂问题：求a^b%m  （注意：可以不用对整体结果取余m，a自乘的过程中随时可以）（a、b、m&gt;0)</p>
-<ul>
-<li><p>递归法：</p>
-<p>将b拆掉：偶数拆b/2，b/2。奇数拆b-1 + 1，b = 0时返回 1.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求 a*b%m 递归写法</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL; <span class="comment">//注意幂可能很大需要LL</span></span><br><span class="line"><span class="function">LL <span class="title">mi</span><span class="params">(LL a,LL b,LL m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(b == <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(b%<span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">      LL temp = mi(a,b/<span class="number">2</span>,m);</span><br><span class="line">      <span class="keyword">return</span> temp*temp%m;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    <span class="keyword">return</span> a*mi(a,b<span class="number">-1</span>,m)%m;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-</li>
-</ol>
-<pre><code>+ 迭代法：
-
-   将b拆为二进制，取b&amp;1，为真末位为1，否则为0
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; a^b%m 移位写法</span><br><span class="line">LL mi(LL a,LL b,LL m)</span><br><span class="line">&#123;</span><br><span class="line">  LL ans &#x3D; 1;</span><br><span class="line">  while(b)  &#x2F;&#x2F;</span><br><span class="line">  &#123;</span><br><span class="line">    if(b&amp;1) </span><br><span class="line">    &#123;</span><br><span class="line">      ans &#x3D; ans * a%m;</span><br><span class="line">    &#125;</span><br><span class="line">    a*&#x3D;a%m;  &#x2F;&#x2F;注意这里也需要取余m</span><br><span class="line">    b&gt;&gt;1;  &#x2F;&#x2F;b右移一位</span><br><span class="line">  &#125;</span><br><span class="line">  return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre>
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E4%BA%8C%E5%88%86%E6%B3%95/" data-id="ck6il4cqv0001w8ti3ze4ewxl"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-算法笔记-贪心" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E8%B4%AA%E5%BF%83/"
-    >算法笔记-贪心</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E8%B4%AA%E5%BF%83/" class="article-date">
-  <time datetime="2020-02-11T12:19:44.589Z" itemprop="datePublished">2020-02-11</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="算法笔记-贪心"><a href="#算法笔记-贪心" class="headerlink" title="算法笔记-贪心"></a>算法笔记-贪心</h1><h2 id="一、贪心"><a href="#一、贪心" class="headerlink" title="一、贪心"></a>一、贪心</h2><p>贪心法用不断的当前最优从而达到全局最优，类似于不断专注做小事最后达到圆满人生~啊，人生哲理！</p>
-<p>pat-1022 月饼</p>
-<p>这题在数据类型上很多坑</p>
-<ul>
-<li><p>输出小数点后两位</p>
-</li>
-<li><p>总价它说是正数，需要用double来接</p>
-</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">yb</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">double</span> volume = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> value = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> total_price = <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(yb a,yb b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.value &gt; b.value;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*3 20</span></span><br><span class="line"><span class="comment">18 15 10</span></span><br><span class="line"><span class="comment">75 72 45</span></span><br><span class="line"><span class="comment">94.50*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;yb&gt;info;</span><br><span class="line">    <span class="keyword">double</span> ans = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> n;</span><br><span class="line">  <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">  <span class="keyword">int</span> need;</span><br><span class="line">  <span class="built_in">cin</span>&gt;&gt;need;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">  &#123;</span><br><span class="line">      yb temp;</span><br><span class="line">      <span class="built_in">cin</span>&gt;&gt;temp.volume;</span><br><span class="line">      info.push_back(temp);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">  &#123;</span><br><span class="line">      <span class="keyword">double</span> x;</span><br><span class="line">      <span class="built_in">cin</span>&gt;&gt;x;</span><br><span class="line">      info[i].total_price = x;</span><br><span class="line">      info[i].value = x/info[i].volume;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  sort(info.begin(),info.end(),cmp);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(need&lt;=<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">if</span>(need&gt;=info[i].volume)</span><br><span class="line">    &#123;</span><br><span class="line">    ans+=info[i].value * info[i].volume;</span><br><span class="line">    need-=info[i].volume;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    &#123;</span><br><span class="line">        ans+=need*info[i].value;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;  </span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%.2f"</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="二、区间贪心"><a href="#二、区间贪心" class="headerlink" title="二、区间贪心"></a>二、区间贪心</h2><ol>
-<li><p>最多不相交区间问题</p>
-<p>描述：取若干个开区间（x ， y），求最多能找到多少个不相交的开区间</p>
-<p>思想：①、去掉能完全包含其他区间的区间，如下图I2完全包含I1，则I2相比I1与其他区间相较的概率增大，同样若I2                                            不与任何区间相交，则I1同样不与任何区间相交。</p>
-<p>​          ②、将区间按左端点排序（需要struct区间类实现），比较右端点</p>
-<p>​           <img src="https://s2.ax1x.com/2020/02/13/1LkKpQ.png" alt=""></p>
-</li>
-</ol>
-<p>​                    ③、用某区间的右端点y和上一个左端点x比较，若包含，下一个。否则结果+1</p>
-<p>​             </p>
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E8%B4%AA%E5%BF%83/" data-id="ck6il4cqx0002w8ti96ulgim2"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-算法笔记-递归" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E9%80%92%E5%BD%92/"
-    >算法笔记-递归</a
-  >
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E9%80%92%E5%BD%92/" class="article-date">
-  <time datetime="2020-02-11T09:32:17.932Z" itemprop="datePublished">2020-02-11</time>
-</a>
-      
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="算法笔记-递归"><a href="#算法笔记-递归" class="headerlink" title="算法笔记-递归"></a>算法笔记-递归</h1><h2 id="一、分治"><a href="#一、分治" class="headerlink" title="一、分治"></a>一、分治</h2><p>分治意为“分而治之”，将直接难以解决的问题分成若干个独立的可以解决的子问题，之后合并得到原问题的解。</p>
-<p>分治可以用递归方法和非递归方法实现，递归方法是常用的方法。</p>
-<h2 id="二、递归"><a href="#二、递归" class="headerlink" title="二、递归"></a>二、递归</h2><p>“想理解递归，你先需要理解递归”</p>
-<p>递归的关键有两个：</p>
-<ul>
-<li>递归边界：什么时候能停止，也是分治的最终结果</li>
-<li>递归式：决定递归方向</li>
-</ul>
-<h2 id="三、经典实例"><a href="#三、经典实例" class="headerlink" title="三、经典实例"></a>三、经典实例</h2><ol>
-<li>递归实现n！</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">factorial</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;  <span class="comment">//already know the factorial of 0 is 1,it's the border of the recursion</span></span><br><span class="line">  <span class="keyword">return</span> n*factorial(n - <span class="number">1</span>);  <span class="comment">//the forlumar of the recursion</span></span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="2">
-<li><p>递归实现全排列</p>
-<p>思想：很经典的思想，假设现在在处理第i个，要放入的是还未放入的元素中的一个，假设目前处理的是第n+1个，说明前n个处理完成，则所有的处理完成。</p>
-</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n,sum;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;ans;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;flag;  <span class="comment">//全局变量</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OS</span><span class="params">(<span class="keyword">int</span> index)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (index == n + <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> c : ans)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; c &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (flag[i] == <span class="literal">false</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ans[index - <span class="number">1</span>] = i;</span><br><span class="line">            flag[i] = <span class="literal">true</span>;</span><br><span class="line">            OS(index + <span class="number">1</span>);     <span class="comment">// i can't be used</span></span><br><span class="line">            flag[i] = <span class="literal">false</span>;  <span class="comment">//now adding the element i to ans[index - 1],when ans[index - 1] added </span></span><br><span class="line">                              <span class="comment">// another element,like i+1,i can be used like 1 2 3 when index = 1                                   //to 2 1 3 ,summary,element not be used this time can be used next time</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    ans.resize(n);</span><br><span class="line">    flag.resize(n + <span class="number">1</span>, <span class="literal">false</span>);</span><br><span class="line">    OS(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="3">
-<li><p>n皇后问题</p>
-<p><img src="https://s2.ax1x.com/2020/02/11/1obNWj.png" alt=""></p>
-<p> 要求每行每列每个对角线都不能有两个或以上棋子，如果完全穷举需要25 * 16 * 9 * 4 * 1次</p>
-<p>改善算法为：因为每行每列都只能有一个格子被占，对于每列来说图a中可得序列24135，b中可得35142</p>
-<p>按这种思路，从n的全排列中剃去在同一对角线的棋子就是答案</p>
-<p>对角线位置棋子有个规律，最明显的是12345都在一个排列，最容易得知的是它们在有一定的顺序</p>
-<p>对于b图：35142 ：3 1冲突，它们符合3_1,5和2冲突，它们符合5_ _ 2,显然，排列按自然递增数学的棋子在一条线上，在上面全排列的基础上容易得到下面的代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OS</span><span class="params">(<span class="keyword">int</span> index)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (index == n + <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;ans.size() - <span class="number">1</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> low = ans[i] - <span class="number">1</span>, hig = ans[i] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (ans[j] == low || ans[j] == hig) <span class="comment">//如果该元素和ans[i]有自然递增/减顺序，剔除</span></span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                low--;</span><br><span class="line">                hig++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        sum++;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (flag[i] == <span class="literal">false</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ans[index - <span class="number">1</span>] = i;</span><br><span class="line">            flag[i] = <span class="literal">true</span>;</span><br><span class="line">            OS(index + <span class="number">1</span>);</span><br><span class="line">            flag[i] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-
-      
-      <!-- 打赏 -->
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/11/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E9%80%92%E5%BD%92/" data-id="ck6hoxjvw0005s8tieo7i8xuy"
-        class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
   </nav>
   
 </section>
